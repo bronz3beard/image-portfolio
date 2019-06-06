@@ -1,4 +1,24 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Image Portfolio
+
+### This document serves as a consolidation of some of the items that could be helpful to understand this project.
+
+This project was bootstrapped with [create-react-app](https://github.com/facebook/create-react-app).
+
+- __For__ Anyone looking to display an image portfolio,
+- __who__ needs to show their imiges,
+- __the__ Image Portfolio,
+- __is a__ Changeable image layout with a modal and landing page.
+
+
+# Installation:
+
+# Demo:
+* a short demo for the current version of the [IMAGE_PORTFOLIO 0.1.0]().
+
+# Collaborators:
+- @personA
+- @personB
+
 
 ## Available Scripts
 

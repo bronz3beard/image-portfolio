@@ -1,0 +1,794 @@
+﻿:root {
+    --myImage-width: 100%; /*auto !important;*/
+}
+body {
+
+}
+.layout {
+    position: fixed;
+    top: 79%;
+    left: 0%;
+    right: 100%;
+    bottom: 0;
+    margin: auto;
+    height: 10px;
+    width: 10px;
+    background-color: transparent;
+    border: rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    outline: 0;
+    filter: opacity(50%);
+}
+
+.banner {
+    display: block;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    background: url("/images/cover.gif") no-repeat;
+    width: 100%; /* Width of new image */
+    height: 100%; /* Height of new image */
+}
+
+/*#Myvideo {
+    position: absolute;
+    max-width: 100%;
+    max-height: 100%;
+    width: var(--width);
+    display: flex;
+    cursor: pointer;
+}*/
+
+[class="1"] {
+    border: 1px solid #00FFFF00;
+    grid-row: span 2; /* 5 */
+    object-fit: cover;
+    opacity: 0.4;
+    height: 450px;
+}
+[id="1"] {
+    width: 100%;
+    width: 269px;
+}
+    [id="1"]:hover {
+        opacity: 1;
+    }
+[class="2"] {
+    grid-row: span 2; /* 5 */
+    object-fit: cover;
+    opacity: 0.4;
+    border: 1px solid #00FFFF00;
+    height: 300px;
+}
+[id="2"] {
+    width: 100%;
+    width: 150px;
+}
+    [id="2"]:hover {
+        opacity: 1;
+    }
+[class="3"] {
+    grid-row: span 2;
+    object-fit: cover;
+    opacity: 0.4;
+    border: 1px solid #00FFFF00;
+    height: 200px;
+}
+[id="3"] {
+    width: 50%;
+}
+    [id="3"]:hover {
+        opacity: 1;
+    }
+[class="4"] {
+    grid-row: span 2;
+    object-fit: cover;
+    opacity: 0.4;
+}
+[id="4"] {
+    width: 99%;
+    width: 99px;
+    height: 10%;
+}
+    [id="4"]:hover {
+        opacity: 1;
+    }
+[class="5"] {
+    grid-row: span 2;
+    object-fit: cover;
+    opacity: 0.4;
+    border: 1px solid #00FFFF00;
+    height: 10%;
+}
+[id="5"] {
+    width: 99%;
+    width: 700px;
+}
+    [id="5"]:hover {
+        opacity: 1;
+    }
+[class="6"] {
+    grid-row: span 2;
+    object-fit: cover;
+    opacity: 0.4;
+    border: 10px solid #00FFFF00;
+    height: 20%;
+}
+[id="6"] {
+    width: 99%;
+    width: 360px;
+}
+    [id="6"]:hover {
+        opacity: 1;
+    }
+[class="7"] {
+    grid-row: span 2;
+    object-fit: cover;
+    opacity: 0.4;
+    border: 1px solid #00FFFF00;
+    height: 80%;
+}
+[id="7"] {
+    width: 100%;
+    width: 500px;
+}
+    [id="7"]:hover {
+        opacity: 1;
+    }
+[class="0"] {
+    grid-row: span 2;
+    object-fit: cover;
+    opacity: 0.4;
+    margin-top: 10px;
+    width: 100%;
+    height: 500px !important;
+}
+[id="0"]:hover {
+    opacity: 1;
+    width: 100%;
+    height: 100%;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+.card-icon-open {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 2rem;
+    color: #fff;
+    cursor: pointer;
+    opacity: 0;
+    transform: translate(-50%, -50%);
+    transition: all .15s ease-in-out;
+}
+.gallery-thumbnail:focus ~ .card-icon-open,
+.gallery-thumbnail:hover ~ .card-icon-open,
+.gallery-thumbnail ~ .card-icon-open:focus,
+.gallery-thumbnail ~ .card-icon-open:hover {
+    opacity: 1;
+}
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    background: rgba(21,21,21,.75);
+}
+.modal-body {
+    position: absolute;
+    transform: translate(0%, 10%);
+    z-index: 11;
+    width: 100%;
+    height: 80%;
+    cursor: pointer;
+    -webkit-overflow-scrolling: touch;
+    overflow: hidden;
+}
+.modal-body img {
+    float: left;
+    border-radius: 4px;
+    max-width: 50%;
+    max-height: 50%;
+    -webkit-overflow-scrolling: touch;
+    overflow: hidden;
+    margin: 10px;
+}
+.modal-body p {
+    color: white;
+    font-size: 18px;
+    margin: 12px;
+    padding-left: 2%;
+    padding-right: 2%;
+    width: 550px;
+    overflow: auto;
+    /*border: 2px solid red;*/
+    text-align: left;
+}
+.modal-close {
+    position: absolute;
+    top: 0;
+    right: 8px;
+    font-size: 1.5rem;
+    color: #111;
+    transition: all .25s ease-in-out;
+}
+
+.footer {
+    position: page;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+
+@media (max-width: 2000px) {
+    .container-fluid galleryContainer {
+        position: absolute;
+        display: -ms-flexbox; /* IE10 */
+        display: flex;
+        -ms-flex-wrap: wrap; /* IE10 */
+        flex-wrap: wrap;
+        padding: 0 4px;
+    }
+    #photos {
+        position: absolute;
+        z-index: 9000;
+        cursor: pointer;
+        text-align: center;
+        width: 100%;
+        height: 100%;
+        margin-top: 4%;
+        margin-left: .01%;
+        margin-right: .01%;
+        padding-left: .01%;
+        padding-right: .01%;
+        animation: fadein 6s;
+        -moz-animation: fadein 6s; /* Firefox */
+        -webkit-animation: fadein 6s; /* Safari and Chrome */
+        -o-animation: fadein 6s; /* Opera */
+    }
+    
+    #Myimage:hover {
+        opacity: 1;
+
+    }
+}
+@media (max-width: 1600px) {
+    .container-fluid galleryContainer {
+        position: absolute;
+        display: -ms-flexbox; /* IE10 */
+        display: flex;
+        -ms-flex-wrap: wrap; /* IE10 */
+        flex-wrap: wrap;
+        padding: 0 4px;
+    }
+
+    #photos {
+        position: absolute;
+        z-index: 9000;
+        cursor: pointer;
+        text-align: center;
+        width: 100%;
+        height: 100%;
+        margin-top: 4%;
+        margin-left: .01%;
+        margin-right: .01%;
+        padding-left: .01%;
+        padding-right: .01%;
+        animation: fadein 6s;
+        -moz-animation: fadein 6s; /* Firefox */
+        -webkit-animation: fadein 6s; /* Safari and Chrome */
+        -o-animation: fadein 6s; /* Opera */
+    }
+
+    #Myimage:hover {
+        opacity: 1;
+    }
+}
+@media (max-width: 1200px) {
+    #photos {
+        cursor: pointer;
+        text-align: center;
+        width: 100%;
+        height: 100%;
+        margin-top: 4%;
+        margin-left: .01%;
+        margin-right: .01%;
+        padding-left: .01%;
+        padding-right: .01%;
+        animation: fadein 6s;
+        -moz-animation: fadein 6s; /* Firefox */
+        -webkit-animation: fadein 6s; /* Safari and Chrome */
+        -o-animation: fadein 6s; /* Opera */
+    }
+    #Myimage {
+        vertical-align: middle;
+        width: 598px;
+        margin: 1px;
+    }
+}
+@media (max-width: 1000px) {
+    #photos {
+        cursor: pointer;
+        text-align: center;
+        width: 100%;
+        height: 100%;
+        margin-top: 4%;
+        margin-left: .01%;
+        margin-right: .01%;
+        padding-left: .01%;
+        padding-right: .01%;
+        animation: fadein 6s;
+        -moz-animation: fadein 6s; /* Firefox */
+        -webkit-animation: fadein 6s; /* Safari and Chrome */
+        -o-animation: fadein 6s; /* Opera */
+    }
+
+    #Myimage {
+        vertical-align: middle;
+        width: 498px;
+        margin: 1px;
+    }
+}
+@media (max-width: 800px) {
+    #photos {
+        cursor: pointer;
+        text-align: center;
+        width: 100%;
+        height: 100%;
+        margin-top: 4%;
+        margin-left: .01%;
+        margin-right: .01%;
+        padding-left: .01%;
+        padding-right: .01%;
+        animation: fadein 6s;
+        -moz-animation: fadein 6s; /* Firefox */
+        -webkit-animation: fadein 6s; /* Safari and Chrome */
+        -o-animation: fadein 6s; /* Opera */
+    }
+
+    #Myimage {
+        vertical-align: middle;
+        width: 398px;
+        margin: 1px;
+    }
+
+}
+@media (max-width: 700px) {
+    #photos {
+        cursor: pointer;
+        text-align: center;
+        width: 100%;
+        height: 100%;
+        margin-top: 4%;
+        margin-left: .01%;
+        margin-right: .01%;
+        padding-left: .01%;
+        padding-right: .01%;
+        animation: fadein 6s;
+        -moz-animation: fadein 6s; /* Firefox */
+        -webkit-animation: fadein 6s; /* Safari and Chrome */
+        -o-animation: fadein 6s; /* Opera */
+    }
+
+    #Myimage {
+        vertical-align: middle;
+        width: 348px;
+        margin: 1px;
+    }
+}
+
+@media (max-width: 600px) {
+    #photos {
+        cursor: pointer;
+        text-align: center;
+        width: 100%;
+        height: 100%;
+        margin-top: 4%;
+        margin-left: .01%;
+        margin-right: .01%;
+        padding-left: .01%;
+        padding-right: .01%;
+        animation: fadein 6s;
+        -moz-animation: fadein 6s; /* Firefox */
+        -webkit-animation: fadein 6s; /* Safari and Chrome */
+        -o-animation: fadein 6s; /* Opera */
+    }
+
+    #Myimage {
+        vertical-align: middle;
+        width: 298px;
+        margin: 1px;
+    }
+}
+
+@media (max-width: 500px) {
+    #photos {
+        cursor: pointer;
+        text-align: center;
+        width: 100%;
+        height: 100%;
+        margin-top: 4%;
+        margin-left: .01%;
+        margin-right: .01%;
+        padding-left: .01%;
+        padding-right: .01%;
+        animation: fadein 6s;
+        -moz-animation: fadein 6s; /* Firefox */
+        -webkit-animation: fadein 6s; /* Safari and Chrome */
+        -o-animation: fadein 6s; /* Opera */
+    }
+
+    #Myimage {
+        vertical-align: middle;
+        width: 248px;
+        margin: 1px;
+    }
+}
+@media (max-width: 475px) {
+    #photos {
+        cursor: pointer;
+        margin-top: 3%;
+        text-align: center;
+        animation: fadein 6s;
+        -moz-animation: fadein 6s; /* Firefox */
+        -webkit-animation: fadein 6s; /* Safari and Chrome */
+        -o-animation: fadein 6s; /* Opera */
+    }
+
+    #Myimage {
+        vertical-align: middle;
+        width: 235px;
+        margin: 1px;
+    }
+}
+@media (max-width: 400px) {
+
+    .modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 10;
+        width: 100%;
+        height: 100%;
+        background: rgba(21,21,21,.75);
+    }
+
+    .modal-body {
+        position: absolute;
+        left: -4%;
+        z-index: 11;
+        cursor: pointer;
+        -webkit-overflow-scrolling: touch;
+        overflow: hidden;
+        transform: translate(0%, 30%);
+    }
+
+        .modal-body img {
+            border-radius: 4px;
+            max-width: 95.8%;
+            max-height: 100%;
+            -webkit-overflow-scrolling: touch;
+            overflow: hidden;
+        }
+
+        .modal-body p {
+            color: white;
+            font-size: 12px;
+            margin: 12px;
+            padding-left: 2%;
+            padding-right: 2%;
+            width: 350px;
+            overflow: auto;
+            /*border: 2px solid red;*/
+            text-align: left;
+        }
+
+    #photos {
+        cursor: pointer;
+        margin-top: 10%;
+        text-align: center;
+        animation: fadein 6s;
+        -moz-animation: fadein 6s; /* Firefox */
+        -webkit-animation: fadein 6s; /* Safari and Chrome */
+        -o-animation: fadein 6s; /* Opera */
+    }
+
+    [class="1"] {
+        border: 1px solid #00FFFF00;
+        grid-row: span 2; /* 5 */
+        object-fit: cover;
+        opacity: 0.4;
+        height: 450px;
+    }
+
+    [id="1"] {
+        width: 100%;
+        width: 269px;
+    }
+
+        [id="1"]:hover {
+            opacity: 1;
+        }
+
+    [class="2"] {
+        grid-row: span 2; /* 5 */
+        object-fit: cover;
+        opacity: 0.4;
+        border: 1px solid #00FFFF00;
+        height: 300px;
+    }
+
+    [id="2"] {
+        width: 100%;
+        width: 150px;
+    }
+
+        [id="2"]:hover {
+            opacity: 1;
+        }
+
+    [class="3"] {
+        grid-row: span 2;
+        object-fit: cover;
+        opacity: 0.4;
+        border: 1px solid #00FFFF00;
+        height: 200px;
+    }
+
+    [id="3"] {
+        width: 50%;
+    }
+
+        [id="3"]:hover {
+            opacity: 1;
+        }
+
+    [class="4"] {
+        grid-row: span 2;
+        object-fit: cover;
+        opacity: 0.4;
+    }
+
+    [id="4"] {
+        width: 99%;
+        width: 99px;
+        height: 10%;
+    }
+
+        [id="4"]:hover {
+            opacity: 1;
+        }
+
+    [class="5"] {
+        grid-row: span 2;
+        object-fit: cover;
+        opacity: 0.4;
+        border: 1px solid #00FFFF00;
+        height: 10%;
+    }
+
+    [id="5"] {
+        width: 99%;
+        width: 700px;
+    }
+
+        [id="5"]:hover {
+            opacity: 1;
+        }
+
+    [class="6"] {
+        grid-row: span 2;
+        object-fit: cover;
+        opacity: 0.4;
+        border: 10px solid #00FFFF00;
+        height: 20%;
+    }
+
+    [id="6"] {
+        width: 99%;
+        width: 360px;
+    }
+
+        [id="6"]:hover {
+            opacity: 1;
+        }
+
+    [class="7"] {
+        grid-row: span 2;
+        object-fit: cover;
+        opacity: 0.4;
+        border: 1px solid #00FFFF00;
+        height: 80%;
+    }
+
+    [id="7"] {
+        width: 100%;
+        width: 500px;
+    }
+
+        [id="7"]:hover {
+            opacity: 1;
+        }
+
+    [class="0"] {
+        grid-row: span 2;
+        object-fit: cover;
+        opacity: 0.4;
+        margin-top: 10px;
+        width: 100%;
+        height: 500px !important;
+    }
+
+    [id="0"]:hover {
+        opacity: 1;
+        width: 100%;
+        height: 100%;
+    }
+
+    .layout {
+        position: fixed;
+        top: 59%;
+        left: 0%;
+        right: 100%;
+        bottom: 0;
+        margin: auto;
+        height: 40px;
+        width: 40px;
+        background-color: transparent;
+        border: rgba(255, 255, 255, 0.1);
+        cursor: pointer;
+        outline: 0;
+        filter: opacity(50%);
+    }
+}
+@media (max-width: 375px) {
+    #photos {
+        cursor: pointer;
+        margin-top: 3%;
+        text-align: center;
+        animation: fadein 6s;
+        -moz-animation: fadein 6s; /* Firefox */
+        -webkit-animation: fadein 6s; /* Safari and Chrome */
+        -o-animation: fadein 6s; /* Opera */
+    }
+
+    #Myimage {
+        max-width: 100%;
+        max-height: 100%;
+        width: 100px;
+    }
+}
+@media (max-width: 360px) {
+    #photos {
+        cursor: pointer;
+        grid-template-columns: 5%; /* 4 */
+        width: 100%;
+        height: 100%;
+        margin-top: 4%;
+        margin-left: .01%;
+        margin-right: .01%;
+        padding-left: .01%;
+        padding-right: .01%;
+    }
+
+    #Myimage {
+        max-width: 100%;
+        max-height: 100%;
+        width: 100px;
+    }
+}
+
+@media (max-width: 240px) {
+    #photos {
+        cursor: pointer;
+        grid-template-columns: 5%; /* 4 */
+        width: 100%;
+        height: 100%;
+        margin-top: 4%;
+        margin-left: .01%;
+        margin-right: .01%;
+        padding-left: .01%;
+        padding-right: .01%;
+    }
+
+    #Myimage {
+        max-width: 100%;
+        max-height: 100%;
+        width: 100px;
+    }
+    .one {
+        /*border: 1px solid Red;*/
+        grid-row: span 1; /* 5 */
+        object-fit: cover;
+    }
+
+    .two {
+        /*border: 1px solid green;*/
+        grid-row: span 1;
+        object-fit: cover;
+    }
+
+    .three {
+        /*border: 1px solid blue;*/
+        grid-row: span 1;
+        object-fit: cover;
+    }
+
+    .four {
+        /*border: 1px solid yellow;*/
+        grid-row: span 1;
+        object-fit: cover;
+    }
+
+    .five {
+        /*border: 1px solid brown;*/
+        grid-row: span 1;
+        object-fit: cover;
+    }
+
+    .six {
+        /*border: 1px solid purple;*/
+        grid-row: span 1;
+        object-fit: cover;
+    }
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes fadein { /* Firefox */
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadein { /* Safari and Chrome */
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@-o-keyframes fadein { /* Opera */
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@media print {
+    #Myimage {
+        width: 40% !important;
+    }
+    .modal-body img {
+        width: 40% !important;
+    }
+    #photos {
+        width: 40% !important;
+    }
+    .modal-body {
+        width: 40% !important;
+    }
+}
+
