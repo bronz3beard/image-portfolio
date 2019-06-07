@@ -9,6 +9,7 @@ body {
 }
 .gallery-container {
     padding-top: .9375rem;
+
 }
 
 .gallery-card {
@@ -77,4 +78,22 @@ body {
     transition: all .25s ease-in-out;
     color: #fff;
 }
-
+footer {
+    display: block;
+    margin: 1em 0 0;
+    font-size: 0.75em;
+    line-height: 1;
+    text-transform: uppercase;
+    background: #2c2c2c;
+}
+footer a {
+    display: block;
+    height: 100%;
+    width: 100%;
+    padding: 1.5em;
+    color: #b1005f;
+    cursor: pointer;
+}
+footer a:hover {
+    color: #7603db;
+}
