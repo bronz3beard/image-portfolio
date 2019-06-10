@@ -11,6 +11,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - __Fixed__ for any bug fixes.
 - __Security__ in case of vulnerabilities.
 
+## [0.1.0] - 11-06-2019
+###Changed
+- routing
+
+### Added
+- icons and one of my own images for landing page
+- infinite scroll WIP
+
 ## [0.1.0] - 06-06-2019
 ###Changed
 - 

@@ -7,16 +7,9 @@ import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 
 //Styles
-import "./Styles/animation.css";
-import "./Styles/aniStyle.css";
-import "./Styles/contextmenu.css";
-import "./Styles/gallery.css";
-import "./Styles/image.css";
 import "./Styles/navi.css";
-import "./Styles/parallax.css";
 import "./Styles/preloader.css";
-import "./Styles/preloader.css";
-
+import "./Styles/gallery.css";
 ReactDOM.render(
   <BrowserRouter>
     <App />

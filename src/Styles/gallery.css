@@ -79,21 +79,22 @@ body {
     color: #fff;
 }
 footer {
-    display: block;
+    width: 100%;
     margin: 1em 0 0;
     font-size: 0.75em;
     line-height: 1;
     text-transform: uppercase;
     background: #2c2c2c;
 }
-footer a {
+footer button {
     display: block;
     height: 100%;
     width: 100%;
     padding: 1.5em;
-    color: #b1005f;
+    border: none;
+    color: rgb(0, 0, 0);  
+    background: rgb(129, 129, 129);
     cursor: pointer;
-}
-footer a:hover {
-    color: #7603db;
-}
+  } footer button:hover {
+    color: #a43dff;
+  }

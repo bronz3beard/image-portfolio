@@ -3,13 +3,18 @@ import { Link } from "react-router-dom";
 
 //Components
 
+//Styles
+import "../Styles/aniStyle.css";
+import "../Styles/parallax.css";
+import "../Styles/contextmenu.css";
+import "../Styles/image.css";
+
 class Landing extends PureComponent {
     constructor(props) {
         super(props)
         this.state = {
             x: 0,
             y: 0,
-            pageChange: false,
         }
     }
     _onMouseMove = (event) => {
@@ -17,7 +22,7 @@ class Landing extends PureComponent {
         const height = this.refs.titleContainer.clientHeight;
         const offX = (event.nativeEvent.layerX / width) * 100;
         const offY = (event.nativeEvent.layerY / height) * 100;
-        //console.log(Math.floor(offX), Math.floor(offY));
+
         this.setState({
             x: offX,
             y: offY,
@@ -29,12 +34,9 @@ class Landing extends PureComponent {
             y: 0,
         });
     }
-    handleClick = () => {
-        const { pageChange } = this.state;
-        this.setState({ pageChange: !pageChange });
-    }
+
     render() {
-        const { x, y, pageChange } = this.state;
+        const { x, y } = this.state;
         const mStyle = {
             "--maskX": x,
             "--maskY": y,
@@ -45,28 +47,28 @@ class Landing extends PureComponent {
                 className="titleContainer"
                 onMouseMove={this._onMouseMove}
                 onMouseOut={this._onMouseOut}
-                onClick={this.handleClick}
                 ref="titleContainer"
                 style={mStyle}
             >
-                <div className={pageChange ? "hide" :"bgimg1"}></div>
-                <div className={pageChange ? "hide" : "titleWrapper"} >
+                <div className="bgimg1"></div>
+                
+                <div className="titleWrapper">
                     <div className="caption" id="caption">
                         <span className="border">
-                            <Link to="/gallery">GALLERY</Link>
+                            <Link to="/gallery">GALLERY</Link>   
                         </span>
                     </div>
-                    <div className="titleWrapper cloneWrapper">
+                        <div className="titleWrapper cloneWrapper">
                         <div className="caption">
                             <span className="border">
-                                <Link to="/gallery">GALLERY</Link>
+                                <Link to="/gallery" >GALLERY</Link>   
                             </span>
                         </div>
-                    </div>
-                </div>
+                        </div>
+                </div>  
             </div>
         );
     }
 }
 
-export default Landing;
+export default Landing;           

@@ -14,7 +14,8 @@ class GalleryImage extends PureComponent {
                 draggable="false"
                 src={this.props.src}
                 alt={this.props.alt}
-                onClick={this.props.onClick} /> 
+                onClick={this.props.onClick} 
+            /> 
         );
     }
 }

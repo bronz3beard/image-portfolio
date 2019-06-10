@@ -6,6 +6,9 @@ import GalleryImage from "./gallery-image";
 import Modal from "./modal";
 import ScrollButton from "./scroll-to-top";
 
+//Icons
+import icon from "../Icons/puzzle.png";
+
 //let number = 200; //Math.floor((Math.random() * 100) + 100);
 //let className = Math.floor(Math.random() * 0) + 7;
 
@@ -13,80 +16,62 @@ class Gallery extends PureComponent {
     constructor(props) {
         super(props);
         this.state = {
-            Urls: [],
-            url: "",
-            isOpen: false,
-            isLoading: false,
             error: false,
             hasMore: false,
+            requestCount: 10,
+            startRequest: 0,
+            isLoading: false,
+            images: [],
+
+            isOpen: false,
+            url: "",
+
             Class: 0,
             idTag: 0,
-        }
+        };
     }
+
     componentDidMount() {
-        const agendaUrl = this.getUrl();
-
-        window.addEventListener("popstate", this.handleClick);
-        
-        this.handleScroll();
-        this.loadData();
-
-        if (agendaUrl) {
-            // eslint-disable-next-line no-restricted-globals
-            history.pushState(null, '', agendaUrl);
-        }
+        window.addEventListener("scroll", this.handleScroll, false);
     }
-    // Binds our scroll event handler
+    componentWillUnmount() {
+        window.removeEventListener("scroll", this.handleScroll, false);
+    }
+    componentWillMount() {
+        // Loads some users on initial load
+        this.loadImages();
+    }
     handleScroll = () => {
-        window.onscroll = () => {
-            const {
-                loadData,
-                state: {
-                    error,
-                    isLoading,
-                    hasMore,
-                },
-            } = this;
-
-            // Bails early if:
-            // * there's an error
-            // * it's already loading
-            // * there's nothing left to load
-            if (error || isLoading || !hasMore) return;
-
-            // Checks that the page has scrolled to the bottom
-            if (
-                window.innerHeight + document.documentElement.scrollTop
-                === document.documentElement.offsetHeight
-            ) {
-                loadData();
-            }
+        const scrolling = document.body.scrollTop + document.documentElement.scrollTop === document.documentElement.scrollHeight - document.documentElement.clientHeight
+        console.log("TCL: Gallery -> handleScroll -> scrolling", scrolling)
+        if (scrolling) {
+            console.log("It works!");
+            this.loadImages();
         }
+
     }
     // Initial call to the server for records 
-    loadData = () => {
-        const { Urls } = this.state;
+    loadImages = () => {
+        const { images, startRequest, requestCount } = this.state;
         const xmlhr = new XMLHttpRequest();
-        const url = "https://jsonplaceholder.typicode.com/photos";
+        const url = `https://jsonplaceholder.typicode.com/photos?_start=${startRequest}&_limit=${requestCount}`;
+        this.setState({ isLoading: true });
+
         xmlhr.open("GET", url, true);
         xmlhr.onload = () => {
-            this.setState({ isLoading: true })
             if (xmlhr.readyState === xmlhr.DONE) {
                 if (xmlhr.status === 200) {
-                    const nextData = JSON.parse(xmlhr.responseText).map(items => ({
+                    const nextImages = JSON.parse(xmlhr.responseText)/*.map(items => ({
                         albumId: items.albumId,
                         id: items.id,
                         thumbnailUrl: items.thumbnailUrl,
                         title: items.title,
                         url: items.url
-                    }));
-                    console.log(Urls)
+                    }));*/
                     this.setState({
-                        hasMore: (Urls.length < 100),
-                        Urls: [
-                            ...Urls,
-                            ...nextData
-                        ],
+                        startRequest: startRequest + requestCount,
+                        images: [...images, ...nextImages],
+                        hasMore: (images.length < 100),
                         isLoading: false,
                     });
                 } else {
@@ -98,10 +83,6 @@ class Gallery extends PureComponent {
             }
         };
         xmlhr.send();
-    }
-    getUrl = () => {
-        const currentURL = window.location.pathname.split('/')[0];
-        return `/${currentURL}`;
     }
     showModal = (image, event) => {
         event.preventDefault();
@@ -121,10 +102,6 @@ class Gallery extends PureComponent {
             url: "",
         });
     }
-    handleClick = () => {
-        const { pageChange } = this.state;
-        this.setState({ pageChange: !pageChange });
-    }
     handleCssChange = () => {
         const { Class } = this.state;
 
@@ -137,13 +114,11 @@ class Gallery extends PureComponent {
         });
         //console.log(randomNumber);
     }
-
-
     render() {
-        const { error, isLoading, Urls, hasMore,
+        const { error, hasMore, isLoading, images,
             url, isOpen, Class, idTag
         } = this.state;
-        const icon = "./Icons/index.png";
+
 
         if (isLoading) {
             return (
@@ -159,18 +134,16 @@ class Gallery extends PureComponent {
                 </div>
             );
         }
-        if (!hasMore) {
-            return (
-                <ScrollButton />
-            );
-        }
+
+        console.log("TCL: Gallery -> render -> images", images)
+        console.log("TCL: Gallery -> render -> hasMore", hasMore)
         return (
             <div
-                refs="galleryContainer"
+                ref="galleryContainer"
                 className="container-fluid galleryContainer"
                 id="photos">
                 {
-                    Urls.map(content => {
+                    images.map(content => {
                         return (
                             <GalleryImage
                                 key={content.id}
@@ -189,9 +162,10 @@ class Gallery extends PureComponent {
                     <footer>
                         <p>
                             &copy; Message goes Here
-                        </p>
+                    </p>
                     </footer>
                 </div>
+                {!hasMore && <ScrollButton />}
             </div>
         )
     }
