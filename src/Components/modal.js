@@ -1,19 +1,19 @@
 import React, { PureComponent } from "react";
-import { Link } from "react-router-dom";
+
+//Components
+import Preloader from "./preloader";
+import GalleryImage from "./gallery-image";
 
 class Modal extends PureComponent {
     render() {
+        const {src, alt, imageId, onClick} = this.props;
+
         return (
-            <div className="modal-overlay" onClick={this.props.onClick} name={this.props.name}>
+            <div className="modal-overlay" onClick={onClick}>
                 <div className="modal-body">
-                    <Link to="/modal" className="modal-close" onClick={this.props.onClick} />
-                    <img
-                        alt=""
-                        src={this.props.src}
-                        onMouseDown={(event) => event.preventDefault()}
-                        draggable="false"
-                    />
-                        <p key={this.props.imageId}>{this.props.alt}</p>             
+                    <a href="/modal" className="modal-close" onClick={onClick} />
+                    <GalleryImage src={src} alt="" />
+                    <p key={imageId}>{alt}</p>
                 </div>
             </div>
         )

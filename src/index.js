@@ -4,15 +4,18 @@ import { BrowserRouter } from "react-router-dom";
 
 //Components
 import App from "./App";
+import ContextMenu from "./Components/contextmenu";
 import * as serviceWorker from "./serviceWorker";
 
 //Styles
 import "./Styles/navi.css";
 import "./Styles/preloader.css";
 import "./Styles/gallery.css";
+
 ReactDOM.render(
   <BrowserRouter>
-    <App />
+      <ContextMenu />
+      <App />
   </BrowserRouter>,
   document.getElementById("root")
 );

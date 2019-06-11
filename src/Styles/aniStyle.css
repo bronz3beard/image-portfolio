@@ -5,9 +5,7 @@
     --maskX: 0;
     --maskY: 50;
     background-color: black;
-    /*border: 3px solid white;*/
 }
-
 .titleWrapper {
     font-family: Lato;
     color: #112200;
@@ -18,7 +16,6 @@
     background-color: black;
     text-align: left;
 }
-
 .cloneWrapper {
     position: absolute;
     overflow: hidden;
@@ -31,4 +28,3 @@
     transition: all .3s cubic-bezier(0.165,0.84, 0.44, 1);
     clip-path: polygon(0 0, calc(var(--maskX) * 1% + (var(--maskY) - 90) * .4%) 0, calc(var(--maskX) * 1% + (var(--maskY) - 1) * -.4%) 100%, 0 100%);
 }
-/*cubic-bezier(0.165,0.84, 0.44, 1);*/

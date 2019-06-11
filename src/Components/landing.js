@@ -51,21 +51,21 @@ class Landing extends PureComponent {
                 style={mStyle}
             >
                 <div className="bgimg1"></div>
-                
+
                 <div className="titleWrapper">
                     <div className="caption" id="caption">
                         <span className="border">
-                            <Link to="/gallery">GALLERY</Link>   
+                            <Link to="/gallery">GALLERY</Link>
                         </span>
                     </div>
-                        <div className="titleWrapper cloneWrapper">
+                    <div className="titleWrapper cloneWrapper">
                         <div className="caption">
                             <span className="border">
-                                <Link to="/gallery" >GALLERY</Link>   
+                                <Link to="/gallery" >GALLERY</Link>
                             </span>
                         </div>
-                        </div>
-                </div>  
+                    </div>
+                </div>
             </div>
         );
     }

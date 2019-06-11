@@ -2,14 +2,13 @@
     /* The image used */
     background-image: url("../Icons/Landing.png");
     /* Set a specific height */
-    min-height: 1200px;
+    min-height: 1650px;
     /* Create the parallax scrolling effect */
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
-
 .caption {
     position: absolute;
     left: 0;
@@ -20,7 +19,6 @@
     font-family: Lato;
     background-color: transparent;
 }
-
 .caption span.border {
     background-color: transparent;
     color: black;
@@ -28,30 +26,10 @@
     font-size: 25px;
     letter-spacing: 10px;
 }
-
 .caption a {
     font-family: Adamina;
     color: #e8e8e8 !important;
     text-decoration: none;
-}
-
-.abc {
-    height: 500px;
-    background-color: blue;
-    font-size: 36px;
-    margin-top: 3%;
-}
-
-.abcd {
-    position: relative;
-    padding: 50px 80px;
-    padding-top: 50px;
-    padding-right: 80px;
-    padding-bottom: 50px;
-    padding-left: 80px;
-    background-color: #111;
-    font-size: 15px;
-    color: white;
 }
 
 @media screen and (max-width: 800px) {
@@ -75,19 +53,16 @@
         color: #000;
         font-family: Lato;
     }
-
-        .caption span.border {
+    .caption span.border {
             background-color: transparent;
             color: black;
             padding: 18px;
             font-size: 25px;
             letter-spacing: 10px;
         }
-
         .caption a {
             font-family: Adamina;
             color: #fff !important;
             text-decoration: none;
         }
-
 }

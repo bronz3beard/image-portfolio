@@ -11,9 +11,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - __Fixed__ for any bug fixes.
 - __Security__ in case of vulnerabilities.
 
-## [0.2.0] - 11-06-2019
+## [0.3.0] - 11-06-2019
 ###Changed
 - infinite scroll now functioning correctly
+- css layout options for gallery
+- preloader colours
+- css has been refined removed unused + duplicate styles
+
+### Added
+- custom context menu
+- navbar place holder
+- getScrollLocation function
+- NoMatch page for if the url is incorrect
+- added GalleryImage to the modal to reuse that component
 
 ## [0.1.0] - 11-06-2019
 ###Changed
@@ -24,8 +34,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - infinite scroll WIP
 
 ## [0.1.0] - 06-06-2019
-###Changed
-- 
 
 ### Added
 - Ability to test components

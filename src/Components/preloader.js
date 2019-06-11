@@ -7,7 +7,7 @@ class Preloader extends PureComponent {
                 <div id="loader"></div>
             </div>
         )
-    
+
     }
 }
 

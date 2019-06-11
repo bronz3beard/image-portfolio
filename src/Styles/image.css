@@ -1,43 +1,4 @@
-﻿:root {
-    --myImage-width: 100%; /*auto !important;*/
-}
-body {
-
-}
-.layout {
-    position: fixed;
-    top: 79%;
-    left: 0%;
-    right: 100%;
-    bottom: 0;
-    margin: auto;
-    height: 40px;
-    width: 40px;
-    background-color: transparent;
-    border: rgba(255, 255, 255, 0.1);
-    cursor: pointer;
-    outline: 0;
-    filter: opacity(50%);
-}
-
-.banner {
-    display: block;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    background: url("/images/cover.gif") no-repeat;
-    width: 100%; /* Width of new image */
-    height: 100%; /* Height of new image */
-}
-
-/*#Myvideo {
-    position: absolute;
-    max-width: 100%;
-    max-height: 100%;
-    width: var(--width);
-    display: flex;
-    cursor: pointer;
-}*/
-
+﻿/*Image layouts*/
 [class="1"] {
     border: 1px solid #00FFFF00;
     grid-row: span 2; /* 5 */
@@ -53,15 +14,14 @@ body {
         opacity: 1;
     }
 [class="2"] {
-    grid-row: span 2; /* 5 */
+    grid-row: span 2;
     object-fit: cover;
     opacity: 0.4;
     border: 1px solid #00FFFF00;
-    height: 300px;
+    height: 200px;
 }
 [id="2"] {
-    width: 100%;
-    width: 150px;
+    width: 50%;
 }
     [id="2"]:hover {
         opacity: 1;
@@ -70,11 +30,12 @@ body {
     grid-row: span 2;
     object-fit: cover;
     opacity: 0.4;
-    border: 1px solid #00FFFF00;
-    height: 200px;
+    border: 10px solid #00FFFF00;
+    height: auto;
 }
 [id="3"] {
-    width: 50%;
+    width: 99%;
+    width: 360px;
 }
     [id="3"]:hover {
         opacity: 1;
@@ -83,55 +44,14 @@ body {
     grid-row: span 2;
     object-fit: cover;
     opacity: 0.4;
+    border: 1px solid #00FFFF00;
+    height: auto;
 }
 [id="4"] {
-    width: 99%;
-    width: 99px;
-    height: 10%;
-}
-    [id="4"]:hover {
-        opacity: 1;
-    }
-[class="5"] {
-    grid-row: span 2;
-    object-fit: cover;
-    opacity: 0.4;
-    border: 1px solid #00FFFF00;
-    height: 10%;
-}
-[id="5"] {
-    width: 99%;
-    width: 700px;
-}
-    [id="5"]:hover {
-        opacity: 1;
-    }
-[class="6"] {
-    grid-row: span 2;
-    object-fit: cover;
-    opacity: 0.4;
-    border: 10px solid #00FFFF00;
-    height: 20%;
-}
-[id="6"] {
-    width: 99%;
-    width: 360px;
-}
-    [id="6"]:hover {
-        opacity: 1;
-    }
-[class="7"] {
-    grid-row: span 2;
-    object-fit: cover;
-    opacity: 0.4;
-    border: 1px solid #00FFFF00;
-    height: 80%;
-}
-[id="7"] {
     width: 100%;
     width: 500px;
 }
-    [id="7"]:hover {
+    [id="4"]:hover {
         opacity: 1;
     }
 [class="0"] {
@@ -146,82 +66,6 @@ body {
     opacity: 1;
     width: 100%;
     height: 100%;
-}
-
-*, *:before, *:after {
-    box-sizing: inherit;
-}
-.card-icon-open {
-    display: block;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    font-size: 2rem;
-    color: #fff;
-    cursor: pointer;
-    opacity: 0;
-    transform: translate(-50%, -50%);
-    transition: all .15s ease-in-out;
-}
-.gallery-thumbnail:focus ~ .card-icon-open,
-.gallery-thumbnail:hover ~ .card-icon-open,
-.gallery-thumbnail ~ .card-icon-open:focus,
-.gallery-thumbnail ~ .card-icon-open:hover {
-    opacity: 1;
-}
-.modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 10;
-    width: 100%;
-    height: 100%;
-    background: rgba(21,21,21,.75);
-}
-.modal-body {
-    position: absolute;
-    transform: translate(0%, 10%);
-    z-index: 11;
-    width: 100%;
-    height: 80%;
-    cursor: pointer;
-    -webkit-overflow-scrolling: touch;
-    overflow: hidden;
-}
-.modal-body img {
-    float: left;
-    border-radius: 4px;
-    max-width: 50%;
-    max-height: 50%;
-    -webkit-overflow-scrolling: touch;
-    overflow: hidden;
-    margin: 10px;
-}
-.modal-body p {
-    color: white;
-    font-size: 18px;
-    margin: 12px;
-    padding-left: 2%;
-    padding-right: 2%;
-    width: 550px;
-    overflow: auto;
-    /*border: 2px solid red;*/
-    text-align: left;
-}
-.modal-close {
-    position: absolute;
-    top: 0;
-    right: 8px;
-    font-size: 1.5rem;
-    color: #111;
-    transition: all .25s ease-in-out;
-}
-
-.footer {
-    position: page;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
 }
 
 @media (max-width: 2000px) {
