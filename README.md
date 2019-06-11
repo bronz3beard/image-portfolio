@@ -5,9 +5,9 @@
 This project was bootstrapped with [create-react-app](https://github.com/facebook/create-react-app).
 
 - __For__ Anyone looking to display an image portfolio,
-- __who__ needs to show their imiges,
+- __who__ needs to show their images in dynamic and interesting layouts,
 - __the__ Image Portfolio,
-- __is a__ Changeable image layout with a modal and landing page.
+- __is a__ Changeable image layout with a modal, landing page and has multiple ways of protecting your images.
 
 
 # Installation:
