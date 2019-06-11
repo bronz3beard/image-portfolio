@@ -11,14 +11,15 @@ This project was bootstrapped with [create-react-app](https://github.com/faceboo
 
 
 # Installation:
+- clone
+- npm install
 
 # Demo:
-* a short demo for the current version of the [IMAGE_PORTFOLIO 0.1.0]().
+* a short demo video for the current version of the [IMAGE_PORTFOLIO 0.3.0](https://www.loom.com/share/3e925f49b8084f62bba1024ff8b31ec4).
 
 # Collaborators:
 - @personA
 - @personB
-
 
 ## Available Scripts
 
