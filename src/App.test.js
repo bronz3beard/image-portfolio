@@ -60,7 +60,7 @@ describe('A-Component-Here', () => {
 const clickFn = jest.fn();
 describe('A-Component-Here', () => {
   it('button click should hide component', () => {
-    const component = shallow(<A-Component-Here onClick={clickFn} />);
+    const component = shallow(<App onClick={clickFn} />);
     component
       .find('button#my-button-two')
       .simulate('click');

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`App Component renders without crashing in 'debug' mode Mon Jun 10 2019 23:37:22 GMT+1000 (Australian Eastern Standard Time) 1`] = `
+exports[`App Component renders without crashing in 'debug' mode Tue Jun 11 2019 18:05:56 GMT+1000 (Australian Eastern Standard Time) 1`] = `
 <Fragment>
   <Switch>
     <Route
@@ -12,21 +12,8 @@ exports[`App Component renders without crashing in 'debug' mode Mon Jun 10 2019 
       component={[Function]}
       path="/gallery"
     />
-  </Switch>
-</Fragment>
-`;
-
-exports[`App Component renders without crashing in 'debug' mode Mon Jun 10 2019 23:42:43 GMT+1000 (Australian Eastern Standard Time) 1`] = `
-<Fragment>
-  <Switch>
     <Route
       component={[Function]}
-      exact={true}
-      path="/"
-    />
-    <Route
-      component={[Function]}
-      path="/gallery"
     />
   </Switch>
 </Fragment>

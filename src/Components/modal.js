@@ -1,7 +1,6 @@
 import React, { PureComponent } from "react";
 
 //Components
-import Preloader from "./preloader";
 import GalleryImage from "./gallery-image";
 
 class Modal extends PureComponent {
@@ -11,7 +10,7 @@ class Modal extends PureComponent {
         return (
             <div className="modal-overlay" onClick={onClick}>
                 <div className="modal-body">
-                    <a href="/modal" className="modal-close" onClick={onClick} />
+                    <div className="modal-close" onClick={onClick} />
                     <GalleryImage src={src} alt="" />
                     <p key={imageId}>{alt}</p>
                 </div>
