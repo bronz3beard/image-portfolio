@@ -18,7 +18,7 @@ class Gallery extends PureComponent {
         this.state = {
             error: false,
             hasMore: false,
-            requestCount: 10,
+            requestCount: 15,
             startRequest: 0,
             isLoading: false,
             images: [],
@@ -41,14 +41,15 @@ class Gallery extends PureComponent {
         this.loadImages();
     }
     handleScroll = () => {
-        const scrolling = document.body.scrollTop + document.documentElement.scrollTop === document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const {error, isLoading, hasMore} = this.state;
+        const scrolling = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - document.documentElement.clientHeight;
 
+        if (error || isLoading || !hasMore) return;
         if (scrolling) {
-            console.log("It works!");
             this.loadImages();
         }
     }
-// Initial call to the server for records 
+//Initial call to the server for data
 loadImages = () => {
     const { images, startRequest, requestCount } = this.state;
     const xmlhr = new XMLHttpRequest();
@@ -59,17 +60,11 @@ loadImages = () => {
     xmlhr.onload = () => {
         if (xmlhr.readyState === xmlhr.DONE) {
             if (xmlhr.status === 200) {
-                const nextImages = JSON.parse(xmlhr.responseText)/*.map(items => ({
-                        albumId: items.albumId,
-                        id: items.id,
-                        thumbnailUrl: items.thumbnailUrl,
-                        title: items.title,
-                        url: items.url
-                    }));*/
+                const nextImages = JSON.parse(xmlhr.responseText)
                 this.setState({
                     startRequest: startRequest + requestCount,
                     images: [...images, ...nextImages],
-                    hasMore: (images.length < 100),
+                    hasMore: (images.length >= startRequest),
                     isLoading: false,
                 });
             } else {
@@ -117,12 +112,6 @@ render() {
         url, isOpen, Class, idTag
     } = this.state;
 
-
-    if (isLoading) {
-        return (
-            <Preloader />
-        );
-    }
     if (error) {
         return (
             <div className="error">
@@ -161,6 +150,7 @@ render() {
                     </p>
                 </footer>
             </div>
+            {isLoading && <Preloader />}
             {!hasMore && <ScrollButton />}
         </div>
     )
