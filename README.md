@@ -15,7 +15,7 @@ This project was bootstrapped with [create-react-app](https://github.com/faceboo
 - npm install
 
 # Demo:
-* a short demo video for the current version of the [IMAGE_PORTFOLIO 0.3.0](https://www.loom.com/share/3e925f49b8084f62bba1024ff8b31ec4).
+* Current version of the [IMAGE_PORTFOLIO 0.4.0](https://image-gallery-feature.herokuapp.com).
 
 # Collaborators:
 - @personA
