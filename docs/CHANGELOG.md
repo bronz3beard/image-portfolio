@@ -11,6 +11,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - __Fixed__ for any bug fixes.
 - __Security__ in case of vulnerabilities.
 
+## [0.4.0] - 17-06-2019
+###Changed
+- page routes to render rather than component
+- moved state to app
+- updated some css styles
+
+### Added
+- started to add content to [Contenful](https://www.contentful.com/) 
+- fetch data component to get data from contentful
+
+### Removed
+- state from gallery
+- local image for landing page
+
 ## [0.3.0] - 11-06-2019
 ###Changed
 - infinite scroll now functioning correctly

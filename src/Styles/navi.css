@@ -2,6 +2,7 @@
     margin: 0;
 }
 .navi span {
+    top: 0;
     color: blue;
     display: inline-block;
     position: fixed;

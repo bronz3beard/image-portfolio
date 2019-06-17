@@ -10,13 +10,10 @@ import "../Styles/contextmenu.css";
 import "../Styles/image.css";
 
 class Landing extends PureComponent {
-    constructor(props) {
-        super(props)
-        this.state = {
-            x: 0,
-            y: 0,
-        }
-    }
+    state = {
+        x: 0,
+        y: 0,
+    }    
     _onMouseMove = (event) => {
         const width = this.refs.titleContainer.clientWidth;
         const height = this.refs.titleContainer.clientHeight;
@@ -37,11 +34,23 @@ class Landing extends PureComponent {
 
     render() {
         const { x, y } = this.state;
+
         const mStyle = {
             "--maskX": x,
             "--maskY": y,
         }
-
+        const bgImage = this.props.landingImage;
+        const bgimg1 = {
+            /* The image used */
+            "--background-image": `url(${bgImage})`,
+            /* Set a specific height */
+            "minHeight": 1650 + "px",
+            /* Create the parallax scrolling effect */
+            "backgroundAttachment": "fixed",
+            "backgroundPosition": "center",
+            "backgroundRepeat": "no-repeat",
+            "backgroundSize": "cover",
+        }
         return (
             <div
                 className="titleContainer"
@@ -50,7 +59,7 @@ class Landing extends PureComponent {
                 ref="titleContainer"
                 style={mStyle}
             >
-                <div className="bgimg1"></div>
+                <div style={bgimg1}></div>
 
                 <div className="titleWrapper">
                     <div className="caption" id="caption">
@@ -61,7 +70,7 @@ class Landing extends PureComponent {
                     <div className="titleWrapper cloneWrapper">
                         <div className="caption">
                             <span className="border">
-                                <Link to="/gallery" >GALLERY</Link>
+                                <Link to="/gallery">GALLERY</Link>
                             </span>
                         </div>
                     </div>

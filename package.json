@@ -1,8 +1,9 @@
 {
   "name": "image-portfolio",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "private": true,
   "dependencies": {
+    "contentful": "^7.7.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-router-dom": "^5.0.1",
