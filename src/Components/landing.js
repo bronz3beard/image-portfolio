@@ -3,11 +3,6 @@ import { Link } from "react-router-dom";
 
 //Components
 
-//Styles
-import "../Styles/aniStyle.css";
-import "../Styles/parallax.css";
-import "../Styles/contextmenu.css";
-import "../Styles/image.css";
 
 class Landing extends PureComponent {
     state = {
@@ -39,12 +34,12 @@ class Landing extends PureComponent {
             "--maskX": x,
             "--maskY": y,
         }
-        const bgImage = this.props.landingImage;
+        const bgImage = `${this.props.landingImage}?h=1200&fm=jpg&q=80`;
         const bgimg1 = {
             /* The image used */
-            "--background-image": `url(${bgImage})`,
+            "backgroundImage": `url(${bgImage})`,
             /* Set a specific height */
-            "minHeight": 1650 + "px",
+            "minHeight": 1200 + "px",
             /* Create the parallax scrolling effect */
             "backgroundAttachment": "fixed",
             "backgroundPosition": "center",

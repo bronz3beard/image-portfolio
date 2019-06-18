@@ -1,11 +1,16 @@
 ﻿body {
     margin: 0;
 }
-.navi span {
+.navi {
     top: 0;
-    color: blue;
+    margin: 0;
+    padding: 0;
     display: inline-block;
-    position: fixed;
     width: 100%;
+    background-color: transparent;
+    font-family: Lato;
+    text-align: center;
+    font-size: 28px;
+    color: black;
     z-index: 11000;
 }

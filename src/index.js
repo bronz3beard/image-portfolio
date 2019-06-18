@@ -8,6 +8,9 @@ import ContextMenu from "./Components/contextmenu";
 import * as serviceWorker from "./serviceWorker";
 
 //Styles
+import "./Styles/parallax.css";
+import "./Styles/contextmenu.css";
+import "./Styles/image.css";
 import "./Styles/navi.css";
 import "./Styles/preloader.css";
 import "./Styles/gallery.css";

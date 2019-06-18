@@ -6,8 +6,7 @@
     position: fixed;
     top: 5%;
     left: 88.5%;
-    z-index: 1000;
-
+    z-index: 10000;
 }
 #loader {
     display: block;

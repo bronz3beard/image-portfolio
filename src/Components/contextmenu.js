@@ -117,7 +117,7 @@ class ContextMenu extends PureComponent {
                 {
                     links.map((item) => {
                         return (
-                            <div className="contextMenu--option" key={item.id}>
+                            <div className="option" key={item.id}>
                                 <a href={item.url} className={item.class} target={item.target} rel={item.rel}>
                                     {item.title}
                                 </a>

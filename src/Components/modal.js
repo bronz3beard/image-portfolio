@@ -5,16 +5,16 @@ import GalleryImage from "./gallery-image";
 
 class Modal extends PureComponent {
     render() {
-        const {src, alt, imageId, onClick} = this.props;
+        const { src, alt, copy, onClick } = this.props;
 
         return (
-            <div className="modal-overlay" onClick={onClick}>
-                <div className="modal-body">
-                    <div className="modal-close" onClick={onClick} />
-                    <GalleryImage src={src} alt="" />
-                    <p key={imageId}>{alt}</p>
+                <div className="modal-overlay" onClick={onClick}>
+                    <div className="modal-body">
+                        <div className="modal-close" onClick={onClick} />
+                        <GalleryImage src={src} alt={alt} onMouseDown={(event) => event.preventDefault()} draggable="false" />
+                        <p className="slide-in">{copy}</p>
+                    </div>
                 </div>
-            </div>
         )
     }
 }

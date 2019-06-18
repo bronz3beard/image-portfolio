@@ -22,6 +22,7 @@ class App extends PureComponent {
 
       isOpen: false,
       url: "",
+      copy: "",
 
       layout: 0,
       idTag: 0,
@@ -30,37 +31,44 @@ class App extends PureComponent {
   componentDidMount() {
     const currentUrl = "/";
     window.addEventListener("popstate", this.handleClick, false);
+    //window.addEventListener("scroll", this.handleScroll, false);
 
-    window.addEventListener("scroll", this.handleScroll, false);
     if (currentUrl) {
       // eslint-disable-next-line no-restricted-globals
       history.pushState(null, '', currentUrl);
     }
   }
   componentWillUnmount() {
-    window.removeEventListener("scroll", this.handleScroll, false);
+    window.removeEventListener("popstate", this.handleClick, false);
+    //window.removeEventListener("scroll", this.handleScroll, false);
   }
   componentWillMount() {
     // Loads some data on initial load
     this.getContentful();
   }
-  getContentful() {
+ // getScrollLocation = () => {
+   // const scrolling = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - document.documentElement.clientHeight;
+   // return scrolling;
+  //}
+  getContentful = () => {
+    const { data, startRequest, requestCount } = this.state;
+
     //const galleryUrl = this.getUrl();
-
-    getAll().then(galleries => {
-      const galleryData = galleries && galleries.find(item => item.fields.url === "/");
-
-      if (!galleryData || galleryData === "undefined") {
+    getAll(startRequest, requestCount).then((galleries) => {
+      const nextGalleryData = galleries && galleries.find(item => item.fields.url === "/");
+      if (!nextGalleryData || nextGalleryData === "undefined") {
         this.setState({
-          isLoading: false,
+          isLoading: true,
           error: true,
         });
-      } //else {
-      this.setState({
-        data: galleryData,
-        isLoading: true,
-      });
-      //}
+      } else {
+        this.setState({
+          startRequest: requestCount,
+          data: { ...data, ...nextGalleryData },
+          hasMore: (galleries.length >= startRequest),
+          isLoading: true,
+        });
+      }
     });
   }
   /*getUrl = () => {
@@ -68,15 +76,7 @@ class App extends PureComponent {
     console.log("TCL: App -> getUrl -> currentURL", currentURL)
     return `/${currentURL}`;
   }*/
-  handleScroll = () => {
-    const { error, isLoading, hasMore } = this.state;
-    const scrolling = this.getScrollLocation();
-
-    if (error || isLoading || !hasMore) return;
-    if (scrolling) {
-      this.getContentful();
-    }
-  }
+  
   handleCssChange = () => {
     const { layout } = this.state;
 
@@ -90,11 +90,7 @@ class App extends PureComponent {
       idTag: randomNumber,
     });
   }
-  getScrollLocation = () => {
-    const scrolling = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    return scrolling;
-  }
-  showModal = (image, event) => {
+  showModal = (image, copy, event) => {
     event.preventDefault();
     document.body.style.overflow = "hidden"
     document.body.style.overflow = "touch"
@@ -102,6 +98,7 @@ class App extends PureComponent {
       overflow: true,
       isOpen: true,
       url: image,
+      copy: copy,
     });
   }
   closeModal = () => {
@@ -114,7 +111,7 @@ class App extends PureComponent {
   }
   render() {
     const { error, hasMore, isLoading, data,
-      url, isOpen, layout, idTag
+      url, copy, isOpen, layout, idTag
     } = this.state;
 
     if (!isLoading) {
@@ -129,6 +126,7 @@ class App extends PureComponent {
         </div>
       );
     }
+
     const landingImage = data.fields.landingImage.fields.file.url;
     return (
       <Switch>
@@ -138,16 +136,18 @@ class App extends PureComponent {
           render={props => (
             <Gallery
               {...props}
-              isLoading={!isLoading}
-              data={data.fields.pageAssembly}
+              error={error}
               hasMore={hasMore}
+              isLoading={isLoading}
+              data={data.fields.pageAssembly}
               url={url}
+              copy={copy}
               isOpen={isOpen}
               layout={layout}
               idTag={idTag}
               handleScroll={this.handleScroll}
+              getContentful={this.getContentful}
               handleCssChange={this.handleCssChange}
-              getScrollLocation={this.getScrollLocation}
               showModal={this.showModal}
               closeModal={this.closeModal}
             />)}

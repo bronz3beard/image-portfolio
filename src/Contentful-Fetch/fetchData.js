@@ -15,8 +15,11 @@ const fetchEntries = () => {
   return client
     .getEntries({
       content_type: CONTENT_TYPE_ID,
+      skip: 0,
+      limit: 10,
       include: 3,
     }).then(response => response.items)
+
     .catch(error => {
       alert("There was an issue fetching your content from Contentful " + error);
     });
@@ -26,6 +29,7 @@ export const getAll = () => {
   return fetchEntries().then(response => {
     //get all data for all components
     const data = response;
+    //console.log("TCL: getAll -> data", data)
 
     return data;
   });

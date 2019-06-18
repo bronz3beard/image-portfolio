@@ -11,6 +11,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - __Fixed__ for any bug fixes.
 - __Security__ in case of vulnerabilities.
 
+## [0.4.0] - 18-06-2019
+###Changed
+- updated and consolodated some css styles
+- context menue
+
+### Added
+- infinite scroll component (not functioning)
+- lazy loading for imges
+
+### Removed
+- some css style files
+
 ## [0.4.0] - 17-06-2019
 ###Changed
 - page routes to render rather than component
