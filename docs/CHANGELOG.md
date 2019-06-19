@@ -11,6 +11,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - __Fixed__ for any bug fixes.
 - __Security__ in case of vulnerabilities.
 
+## [0.5.0] - 19-06-2019
+###Changed
+- fetch data added fetch for image array
+
+### Added
+- working functionality to reusable infinite scroll component
+
+### Removed
+- nested mappings in gallery
+
 ## [0.4.0] - 18-06-2019
 ###Changed
 - updated and consolodated some css styles

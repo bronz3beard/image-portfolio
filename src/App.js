@@ -1,9 +1,9 @@
 import React, { PureComponent } from "react";
 import { Route, Switch } from "react-router-dom";
-import { getAll } from "./Contentful-Fetch/fetchData";
+import { getAll, getAllImages } from "./Contentful-Fetch/fetchData";
 
 //Components
-import Preloader from "./Components/preloader";
+import InfiniteScroll from "./Components/infinite-scroll";
 import Landing from "./Components/landing";
 import Gallery from "./Components/gallery";
 import NoMatch from "./Components/no-match-page";
@@ -19,6 +19,7 @@ class App extends PureComponent {
       startRequest: 0,
       requestCount: 10,
       data: null,
+      image: [],
 
       isOpen: false,
       url: "",
@@ -44,31 +45,42 @@ class App extends PureComponent {
   }
   componentWillMount() {
     // Loads some data on initial load
-    this.getContentful();
+    this.getAllContentfulData();
+    this.getAllContentfulImages();    
   }
- // getScrollLocation = () => {
-   // const scrolling = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - document.documentElement.clientHeight;
-   // return scrolling;
-  //}
-  getContentful = () => {
-    const { data, startRequest, requestCount } = this.state;
-
+  getAllContentfulData = () => {
     //const galleryUrl = this.getUrl();
-    getAll(startRequest, requestCount).then((galleries) => {
-      const nextGalleryData = galleries && galleries.find(item => item.fields.url === "/");
-      if (!nextGalleryData || nextGalleryData === "undefined") {
+    getAll().then((galleries) => {
+      const galleryData = galleries && galleries.find(item => item.fields.url === "/");
+      if (!galleryData || galleryData === "undefined") {
         this.setState({
           isLoading: true,
           error: true,
         });
       } else {
         this.setState({
-          startRequest: requestCount,
-          data: { ...data, ...nextGalleryData },
-          hasMore: (galleries.length >= startRequest),
+          data: galleryData,
           isLoading: true,
         });
       }
+    });
+  }
+  getAllContentfulImages = () => {
+    const { image, startRequest, requestCount } = this.state;
+    getAllImages(startRequest, requestCount).then((images) => {
+      const allImages = images;
+      if (!allImages) {
+        this.setState({
+          isLoading: false,
+          error: true,
+        });
+      }
+      this.setState({
+        startRequest: startRequest + requestCount,
+        image: [ ...image, ...allImages ],
+        hasMore: (images.length >= startRequest),
+        isLoading: false,
+      });
     });
   }
   /*getUrl = () => {
@@ -110,13 +122,10 @@ class App extends PureComponent {
     });
   }
   render() {
-    const { error, hasMore, isLoading, data,
-      url, copy, isOpen, layout, idTag
+    const { error, hasMore, isLoading, data, image,
+      url, copy, isOpen, layout, idTag,
     } = this.state;
 
-    if (!isLoading) {
-      return (<Preloader />);
-    }
     if (error) {
       return (
         <div className="error">
@@ -126,31 +135,28 @@ class App extends PureComponent {
         </div>
       );
     }
-
-    const landingImage = data.fields.landingImage.fields.file.url;
+    
+    const landingImage = data && data.fields.landingImage.fields.file.url;
     return (
       <Switch>
         <Route exact path="/" render={props => (<Landing {...props} landingImage={landingImage} />)} />
         <Route
           path="/gallery"
           render={props => (
-            <Gallery
-              {...props}
-              error={error}
-              hasMore={hasMore}
-              isLoading={isLoading}
-              data={data.fields.pageAssembly}
-              url={url}
-              copy={copy}
-              isOpen={isOpen}
-              layout={layout}
-              idTag={idTag}
-              handleScroll={this.handleScroll}
-              getContentful={this.getContentful}
-              handleCssChange={this.handleCssChange}
-              showModal={this.showModal}
-              closeModal={this.closeModal}
-            />)}
+            <InfiniteScroll error={error} hasMore={hasMore} isLoading={isLoading} getAllContentfulImages={this.getAllContentfulImages}>
+              <Gallery
+                {...props}
+                data={image}
+                url={url}
+                copy={copy}
+                isOpen={isOpen}
+                layout={layout}
+                idTag={idTag}
+                handleCssChange={this.handleCssChange}
+                showModal={this.showModal}
+                closeModal={this.closeModal}
+              />
+            </InfiniteScroll>)}
         />
         <Route component={NoMatch} />
       </Switch>

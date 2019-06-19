@@ -1,4 +1,4 @@
-﻿#root {
+﻿#infinite-scroll {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -65,13 +65,15 @@ body {
     color: #fff;
 }
 
-footer {
+footer p {
+    display: block;
+    padding: 1.5em;
     width: 100%;
     margin: 1em 0 0;
     font-size: 0.75em;
     line-height: 1;
     text-transform: uppercase;
-    background: #2c2c2c;
+    background-color: rgb(129, 129, 129);
 }
 footer button {
     display: block;
@@ -80,8 +82,7 @@ footer button {
     padding: 1.5em;
     border: none;
     color: rgb(0, 0, 0);  
-    background: rgb(129, 129, 129);
-    cursor: pointer;
+    background-color: rgb(129, 129, 129);
 } footer button:hover {
-    color: #a43dff;
+    color: white;
 }

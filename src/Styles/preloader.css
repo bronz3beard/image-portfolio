@@ -36,7 +36,6 @@
 
     -webkit-animation: spin 3s linear infinite;
     animation: spin 3s linear infinite;
-
 }
 
 #loader:after {
@@ -52,7 +51,6 @@
 
     -webkit-animation: spin 1.5s linear infinite;
     animation: spin 1.5s linear infinite;
-
 }
 
 @-webkit-keyframes spin {

@@ -6,9 +6,7 @@ class ScrollButton extends PureComponent {
     };
     render() {
         return (
-            <footer>
-                <button title="Back to top" onClick={this.scrollToTop}>Back to top</button>
-            </footer>
+        <button title="Back to top" onClick={this.scrollToTop}>Back to top</button>
         );
     }
 }

@@ -2,7 +2,6 @@
 
 //Components
 import NavBar from "./navbar";
-import InfiniteScroll from "./infinite-scroll";
 import Preloader from "./preloader";
 import ScrollButton from "./scroll-to-top";
 
@@ -23,63 +22,37 @@ class Gallery extends PureComponent {
     closeModal = () => {
         this.props.closeModal();
     }
-
     render() {
-        const { hasMore, isLoading, error, data, url, copy, 
-            isOpen, layout, idTag, handleScroll, getContentful,
-        } = this.props;
-
+        const { hasMore, isLoading, data, url, copy, isOpen, layout, idTag } = this.props;
         return (
             <Fragment>
                 <NavBar data={data.fields} />
                 <div className="container-fluid galleryContainer" id="photos">
-                    <InfiniteScroll error={error} isLoading={isLoading} hasMore={hasMore} handleScroll={handleScroll} getContentful={getContentful}>
-                        {
-                            data.map(content => {
-                                return (
-                                    <Fragment key={content.sys.id}>
-                                        {
-                                            content.fields.pageBuild.map((img) => {
-                                                return (
-                                                    <Fragment key={img.sys.id}>
-                                                        {
-                                                            img.fields.images.map((image) => {
-                                                                return (
-                                                                    <Suspense key={image.sys.id} fallback={<Preloader />}>
-                                                                        <GalleryImage
-                                                                            className={layout}
-                                                                            id={idTag}
-                                                                            src={image.fields.image.fields.file.url}
-                                                                            alt={image.fields.altText}
-                                                                            onClick={(event) => this.showModal(image.fields.image.fields.file.url, image.fields.copy, event)}
-                                                                        />
-                                                                    </Suspense>                                                                        
-                                                                );
-                                                            })
-                                                        }
-                                                    </Fragment>
+                    {
+                        data.map(image => {
+                            return (
+                                <Suspense key={image.sys.id} fallback={<Preloader />}>
+                                    <GalleryImage
+                                        className={layout}
+                                        id={idTag}
+                                        src={image.fields.image.fields.file.url}
+                                        alt={image.fields.altText}
+                                        onClick={(event) => this.showModal(image.fields.image.fields.file.url, image.fields.copy, event)}
+                                    />
+                                </Suspense>
+                            );
+                        })
+                    }
+                    {isOpen ? <Suspense fallback={<Preloader />}><Modal src={`${url}?w=900&h=600`} onClick={this.closeModal} copy={copy} /></Suspense> : null}
 
-                                                );
-                                            })
-                                        }
-                                    </Fragment>
-                                );
-                            })
-                        }
-                        {!isLoading && <Preloader />}
+                    <img src={icon} alt="icons8.com" className="layout-change-icon" onClick={this.handleCssChange} />
+                    {isLoading && <Preloader />}
+                    <footer>
                         {!hasMore && <ScrollButton />}
-                        {isOpen ? <Suspense fallback={<Preloader />}><Modal src={`${url}?w=900&h=600`} onClick={this.closeModal} copy={copy}/></Suspense> : null}
-
-                        <img src={icon} alt="icons8.com" className="layout-change-icon" onClick={this.handleCssChange} />
-
-                        <div className="footer">
-                            <footer>
-                                <p>
-                                    &copy; Copyright message goes Here
-                            </p>
-                            </footer>
-                        </div>
-                    </InfiniteScroll>
+                        <p>
+                            &copy; Copyright message goes Here
+                        </p>
+                    </footer>
                 </div>
             </Fragment>
         )
