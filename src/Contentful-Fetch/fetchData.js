@@ -33,7 +33,6 @@ export const getAll = () => {
 }
 
 const fetchAssests = (_skip, _limit) => {
-  console.log("TCL: fetchAssests ->  _skip, _limit",  _skip, _limit)
   return client
     .getEntries({
       content_type: ASSESTS_TYPE_ID,
