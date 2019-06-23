@@ -10,6 +10,7 @@ class InfiniteScroll extends PureComponent {
     handleScroll = () => {
         const { error, isLoading, hasMore, getAllContentfulImages } = this.props;
         const scrolling = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        console.log("TCL: InfiniteScroll -> handleScroll -> document.documentElement.scrollHeight", document.documentElement.scrollHeight)
 
         if (error || isLoading || !hasMore) return;
         if (scrolling && hasMore) {

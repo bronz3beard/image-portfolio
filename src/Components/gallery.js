@@ -24,36 +24,41 @@ class Gallery extends PureComponent {
     }
     render() {
         const { hasMore, isLoading, data, url, copy, isOpen, layout, idTag } = this.props;
+
+        const parentClassChange =  layout === 3 ? "mosaic" : "container-fluid galleryContainer";
+
         return (
             <Fragment>
                 <NavBar data={data.fields} />
-                <div className="container-fluid galleryContainer" id="photos">
+                <div className={parentClassChange} id="photos">
                     {
                         data.map(image => {
+                            const img = layout === 3 ? `${image.fields.image.fields.file.url}?w=420&h=400&fl=progressive` : image.fields.image.fields.file.url;
+                            const text = image.fields.copy;               
                             return (
                                 <Suspense key={image.sys.id} fallback={<Preloader />}>
                                     <GalleryImage
-                                        className={layout}
+                                        className={layout !== 3 ? layout : image.fields.theme}
                                         id={idTag}
-                                        src={image.fields.image.fields.file.url}
+                                        src={img}
                                         alt={image.fields.altText}
-                                        onClick={(event) => this.showModal(image.fields.image.fields.file.url, image.fields.copy, event)}
+                                        onClick={(event) => this.showModal(img, text, event)}
                                     />
                                 </Suspense>
                             );
                         })
                     }
-                    {isOpen ? <Suspense fallback={<Preloader />}><Modal src={`${url}?w=900&h=600`} onClick={this.closeModal} copy={copy} /></Suspense> : null}
+                    {isOpen ? <Suspense fallback={<Preloader />}><Modal src={`${url}?w=900&h=600&fl=progressive`} onClick={this.closeModal} copy={copy} /></Suspense> : null}
 
                     <img src={icon} alt="icons8.com" className="layout-change-icon" onClick={this.handleCssChange} />
                     {isLoading && <Preloader />}
-                    <footer>
-                        {!hasMore && <ScrollButton />}
-                        <p>
-                            &copy; Copyright message goes Here
-                        </p>
-                    </footer>
                 </div>
+                <footer>
+                    {!hasMore && <ScrollButton />}
+                    <p>
+                        &copy; Copyright message goes Here
+                    </p>
+                </footer>
             </Fragment>
         )
     }

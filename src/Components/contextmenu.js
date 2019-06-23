@@ -59,7 +59,6 @@ class ContextMenu extends PureComponent {
         document.removeEventListener('click', this._handleMouseAction);
         document.removeEventListener('scroll', this._handleMouseAction);
     }
-
     handleContextMenu = (event) => {
         event.preventDefault();
         event.stopPropagation();
@@ -91,7 +90,6 @@ class ContextMenu extends PureComponent {
             this.root.style.top = `${clickY - rootH - 5}px`;
         }
     };
-
     _handleMouseAction = (event) => {
         const { visible } = this.state;
         const wasOutside = !(event.target.contains === this.root);

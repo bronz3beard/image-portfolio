@@ -1,23 +1,22 @@
-import React, { PureComponent, Fragment } from "react";
+import React, { PureComponent } from "react";
 
 //Components
 
 class GalleryImage extends PureComponent {
     render() {
-        const { src, alt, id, className, style, onClick } = this.props;
+        const { src, alt, id, className, onClick } = this.props;
+
         return (
-            <Fragment>
+            <div className={className}>
                 <img
                     id={id}
-                    className={className}
-                    style={style}
-                    onMouseDown={(event) => event.preventDefault()}
                     draggable="false"
                     src={src}
                     alt={alt}
+                    onMouseDown={(event) => event.preventDefault()}
                     onClick={onClick}
                 />
-            </Fragment>
+            </div>
         );
     }
 }
