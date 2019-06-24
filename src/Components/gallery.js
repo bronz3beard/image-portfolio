@@ -23,9 +23,9 @@ class Gallery extends PureComponent {
         this.props.closeModal();
     }
     render() {
-        const { hasMore, isLoading, data, url, copy, isOpen, layout, idTag } = this.props;
+        const { hasMore, isLoading, data, url, copy, isOpen, layout } = this.props;
 
-        const parentClassChange =  layout === 3 ? "mosaic" : "container-fluid galleryContainer";
+        const parentClassChange =  layout ? "mosaic" : "container-fluid galleryContainer";
 
         return (
             <Fragment>
@@ -33,13 +33,13 @@ class Gallery extends PureComponent {
                 <div className={parentClassChange} id="photos">
                     {
                         data.map(image => {
-                            const img = layout === 3 ? `${image.fields.image.fields.file.url}?w=420&h=400&fl=progressive` : image.fields.image.fields.file.url;
+                            const img = `${image.fields.image.fields.file.url}?fl=progressive`;
                             const text = image.fields.copy;               
                             return (
                                 <Suspense key={image.sys.id} fallback={<Preloader />}>
                                     <GalleryImage
-                                        className={layout !== 3 ? layout : image.fields.theme}
-                                        id={idTag}
+                                        className={layout ? image.fields.theme : "wide-screen"}
+                                        id={layout ? "" : "wide-screen"}
                                         src={img}
                                         alt={image.fields.altText}
                                         onClick={(event) => this.showModal(img, text, event)}
@@ -48,7 +48,7 @@ class Gallery extends PureComponent {
                             );
                         })
                     }
-                    {isOpen ? <Suspense fallback={<Preloader />}><Modal src={`${url}?w=900&h=600&fl=progressive`} onClick={this.closeModal} copy={copy} /></Suspense> : null}
+                    {isOpen ? <Suspense fallback={<Preloader />}><Modal src={url} onClick={this.closeModal} copy={copy} /></Suspense> : null}
 
                     <img src={icon} alt="icons8.com" className="layout-change-icon" onClick={this.handleCssChange} />
                     {isLoading && <Preloader />}

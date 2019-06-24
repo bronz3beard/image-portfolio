@@ -7,7 +7,6 @@
     background-color: black;
 }
 .titleWrapper {
-    font-family: Lato;
     color: #112200;
     cursor: pointer;
     font-size: 90px;
@@ -35,7 +34,7 @@
     width: 100%;
     text-align: center;
     color: #c4c4c4; /*#dcdcdc;*/
-    font-family: Lato;
+    font-family: 'PT Sans Narrow', sans-serif;
     background-color: transparent;
 }
 .caption span.border {
@@ -46,7 +45,6 @@
     letter-spacing: 10px;
 }
 .caption a {
-    font-family: Adamina;
     color: #e8e8e8 !important;
     text-decoration: none;
 }

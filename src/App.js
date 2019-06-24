@@ -25,8 +25,7 @@ class App extends PureComponent {
       url: "",
       copy: "",
 
-      layout: 0,
-      idTag: 0,
+      layout: false,
     };
   }
   componentDidMount() {
@@ -91,15 +90,11 @@ class App extends PureComponent {
   
   handleCssChange = () => {
     const { layout } = this.state;
-
     const lastScrollY = window.scrollY;
     window.scrollTo(0, lastScrollY);
 
-    const rand = [1, 2, 3, 4, 5];
-    const randomNumber = (layout + 1) % rand.length;
     this.setState({
-      layout: randomNumber,
-      idTag: randomNumber,
+      layout: !layout,
     });
   }
   showModal = (image, copy, event) => {

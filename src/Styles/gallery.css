@@ -21,12 +21,10 @@ body {
     border: rgba(255, 255, 255, 0.1);
     cursor: pointer;
     outline: 0;
-    filter: opacity(50%);
-}
-.gallery-container {
-    padding-top: .9375rem;
+    z-index: 9;
 }
 .modal-overlay {
+    cursor: pointer;
     position: fixed;
     top: 0;
     left: 0;
@@ -34,17 +32,17 @@ body {
     width: 100%;
     height: 100%;
     color: white;
-    background: rgba(21,21,21,.75);
+    z-index: 11;
+    background: rgba(1, 12, 32, 0.80);
 }
 .modal-body {
     position: absolute;
     top: 50%;
     left: 50%;
-    z-index: 11;
     padding: 0;
-    overflow: auto;
+    overflow: hidden;
     max-width: 100%;
-    max-height: 100%;
+    max-height: 95%;
     border-radius: 4px;
     transform: translate(-50%, -50%);
 }
@@ -56,6 +54,16 @@ body {
     color: #111;
     transition: all .25s ease-in-out;
     color: #fff;
+}
+.modal-body p {
+    color: white;
+    font-size: 18px;
+    padding-left: 2%;
+    padding-right: 2%;
+    width: 550px;
+    overflow: auto;
+    /*border: 2px solid red;*/
+    text-align: left;
 }
 
 footer  {
