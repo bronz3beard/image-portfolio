@@ -11,6 +11,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - __Fixed__ for any bug fixes.
 - __Security__ in case of vulnerabilities.
 
+## [0.7.0] - 25-06-2019
+###Changed
+- how the data is collected only using one fetch now, this has broken the infinite scroll for now
+
+### Added
+- A Second Page for showing differnet style of photography 
+- a main routes page to handle dynamically added pages and content from contenful
+- further updates to Css and refining Css code
+- links to navBar component to navigate new pages
+
 ## [0.6.0] - 24-06-2019
 ###Changed
 - WIP chnaging and adjusting css for gallery layout options

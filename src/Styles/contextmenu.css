@@ -9,13 +9,12 @@
     padding: 1px 50px 1px 10px;
     min-width: 160px;
     font-size: 20px;
-    color: white;
     text-decoration: none !important;
 }
 a:hover {
-    color: white !important;
-    text-decoration: none !important;
+    color: #001166;
+    text-decoration: none;
 }
 a {
-    color: white;
+    color: #0055aa;
 }

@@ -48,8 +48,17 @@ const fetchAssests = (_skip, _limit) => {
 export const getAllImages = (_skip, _limit) => {
   return fetchAssests(_skip, _limit).then(response => {
     //get all data for all components
-    const data = response;
+    const data = shuffle(response);
 
     return data;
   });
+}
+
+//The modern version of the Fisher–Yates shuffle
+const shuffle = (array) => {
+  for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
 }

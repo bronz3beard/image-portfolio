@@ -13,42 +13,55 @@ const GalleryImage = lazy(() => import("./gallery-image"));
 const Modal = lazy(() => import("./modal"));
 
 class Gallery extends PureComponent {
+     /*getAllContentfulImages = () => {
+    const { image, startRequest, requestCount } = this.state;
+
+    console.log("TCL: App -> getAllContentfulImages -> galleryUrl", galleryUrl)
+    if (galleryUrl === "/nature" || galleryUrl === "/gallery") {
+      getAllImages(startRequest, requestCount).then((images) => {
+        const allImages = images && images.find(item => item.fields.url === galleryUrl);
+        if (!allImages || allImages === "undefined") {
+          this.setState({
+            isLoading: false,
+            error: true,
+          });
+        } else {
+          this.setState({
+            startRequest: startRequest + requestCount,
+            image: [...image, ...allImages.fields.images],
+            hasMore: (images.length >= startRequest),
+            isLoading: false,
+          });
+        }
+      });
+    }
+  }*/
+
     handleCssChange = () => {
         this.props.handleCssChange();
-    }
-    showModal = (image, copy, event) => {
-        this.props.showModal(image, copy, event);
     }
     closeModal = () => {
         this.props.closeModal();
     }
     render() {
-        const { hasMore, isLoading, data, url, copy, isOpen, layout } = this.props;
+        const { hasMore, isLoading, data, url, copy, isOpen, layout, showModal } = this.props;
 
         const parentClassChange =  layout ? "mosaic" : "container-fluid galleryContainer";
 
         return (
             <Fragment>
-                <NavBar data={data.fields} />
+                <NavBar />
                 <div className={parentClassChange} id="photos">
                     {
-                        data.map(image => {
-                            const img = `${image.fields.image.fields.file.url}?fl=progressive`;
-                            const text = image.fields.copy;               
+                        data.map(image => {            
                             return (
                                 <Suspense key={image.sys.id} fallback={<Preloader />}>
-                                    <GalleryImage
-                                        className={layout ? image.fields.theme : "wide-screen"}
-                                        id={layout ? "" : "wide-screen"}
-                                        src={img}
-                                        alt={image.fields.altText}
-                                        onClick={(event) => this.showModal(img, text, event)}
-                                    />
+                                    <GalleryImage images={image.fields.images} layout={layout} showModal={showModal} />
                                 </Suspense>
                             );
                         })
                     }
-                    {isOpen ? <Suspense fallback={<Preloader />}><Modal src={url} onClick={this.closeModal} copy={copy} /></Suspense> : null}
+                    {isOpen ? <Suspense fallback={<Preloader />}><Modal src={url} copy={copy} onClick={this.closeModal} /></Suspense> : null}
 
                     <img src={icon} alt="icons8.com" className="layout-change-icon" onClick={this.handleCssChange} />
                     {isLoading && <Preloader />}

@@ -1,11 +1,11 @@
 import React, { PureComponent } from "react";
 import { Route, Switch } from "react-router-dom";
-import { getAll, getAllImages } from "./Contentful-Fetch/fetchData";
+import { getAll } from "./Contentful-Fetch/fetchData";
 
 //Components
-import InfiniteScroll from "./Components/infinite-scroll";
+import Preloader from "./Components/preloader";
 import Landing from "./Components/landing";
-import Gallery from "./Components/gallery";
+import MainRoutes from "./Components/main-routes";
 import NoMatch from "./Components/no-match-page";
 
 class App extends PureComponent {
@@ -14,7 +14,7 @@ class App extends PureComponent {
     this.state = {
       error: false,
       hasMore: false,
-      isLoading: false,
+      isLoading: true,
 
       startRequest: 0,
       requestCount: 10,
@@ -29,65 +29,47 @@ class App extends PureComponent {
     };
   }
   componentDidMount() {
-    const currentUrl = "/";
+    const currentUrl = this.getUrl();
     window.addEventListener("popstate", this.handleClick, false);
     //window.addEventListener("scroll", this.handleScroll, false);
 
     if (currentUrl) {
       // eslint-disable-next-line no-restricted-globals
-      history.pushState(null, '', currentUrl);
+      history.pushState(null, '', "/landing");
     }
+    this.getAllContentfulData();
   }
   componentWillUnmount() {
-    window.removeEventListener("popstate", this.handleClick, false);
+    window.removeEventListener("popstate", this.handleCssChange, false);
     //window.removeEventListener("scroll", this.handleScroll, false);
   }
   componentWillMount() {
     // Loads some data on initial load
-    this.getAllContentfulData();
-    this.getAllContentfulImages();    
+
+    //this.getAllContentfulImages();
   }
   getAllContentfulData = () => {
-    //const galleryUrl = this.getUrl();
+    const galleryUrl = this.getUrl();
     getAll().then((galleries) => {
-      const galleryData = galleries && galleries.find(item => item.fields.url === "/");
+      const galleryData = galleries.find(item => item.fields.url === galleryUrl);
       if (!galleryData || galleryData === "undefined") {
         this.setState({
-          isLoading: true,
+          isLoading: false,
           error: true,
         });
       } else {
         this.setState({
           data: galleryData,
-          isLoading: true,
-        });
-      }
-    });
-  }
-  getAllContentfulImages = () => {
-    const { image, startRequest, requestCount } = this.state;
-    getAllImages(startRequest, requestCount).then((images) => {
-      const allImages = images;
-      if (!allImages) {
-        this.setState({
           isLoading: false,
-          error: true,
         });
       }
-      this.setState({
-        startRequest: startRequest + requestCount,
-        image: [ ...image, ...allImages ],
-        hasMore: (images.length >= startRequest),
-        isLoading: false,
-      });
     });
   }
-  /*getUrl = () => {
+  getUrl = () => {
     const currentURL = window.location.pathname.split('/')[1];
-    console.log("TCL: App -> getUrl -> currentURL", currentURL)
+    //console.log("TCL: App -> getUrl -> currentURL", currentURL)
     return `/${currentURL}`;
-  }*/
-  
+  }
   handleCssChange = () => {
     const { layout } = this.state;
     const lastScrollY = window.scrollY;
@@ -117,41 +99,41 @@ class App extends PureComponent {
     });
   }
   render() {
-    const { error, hasMore, isLoading, data, image,
-      url, copy, isOpen, layout, idTag,
+    const { error, hasMore, isLoading, data,
+      url, copy, isOpen, layout
     } = this.state;
-
+    
+    if (isLoading) {
+      return (
+        <Preloader />
+      )
+    }
     if (error) {
       return (
         <div className="error">
           <span>
-            Content data has been fetched but it is empty or the url is undefined.
+            "Content data has been fetched but it is empty or the url is undefined."
           </span>
         </div>
       );
     }
-    
     const landingImage = data && data.fields.landingImage.fields.file.url;
+
     return (
       <Switch>
-        <Route exact path="/" render={props => (<Landing {...props} landingImage={landingImage} />)} />
-        <Route
-          path="/gallery"
-          render={props => (
-            <InfiniteScroll error={error} hasMore={hasMore} isLoading={isLoading} getAllContentfulImages={this.getAllContentfulImages}>
-              <Gallery
-                {...props}
-                data={image}
-                url={url}
-                copy={copy}
-                isOpen={isOpen}
-                layout={layout}
-                idTag={idTag}
-                handleCssChange={this.handleCssChange}
-                showModal={this.showModal}
-                closeModal={this.closeModal}
-              />
-            </InfiniteScroll>)}
+        <Route exact path={data.fields.url} render={props => (<Landing {...props} landingImage={landingImage} data={data.fields} />)} />
+        <MainRoutes
+          error={error}
+          isLoading={isLoading}
+          data={data.fields.pageAssembly}
+          url={url}
+          copy={copy}
+          hasMore={hasMore}
+          isOpen={isOpen}
+          layout={layout}
+          handleCssChange={this.handleCssChange}
+          showModal={this.showModal}
+          closeModal={this.closeModal}
         />
         <Route component={NoMatch} />
       </Switch>

@@ -34,6 +34,7 @@ class Landing extends PureComponent {
             "--maskX": x,
             "--maskY": y,
         }
+        
         const bgImage = `${this.props.landingImage}?h=1200&fm=jpg&q=80`;
         const bgimg1 = {
             /* The image used */
@@ -46,6 +47,7 @@ class Landing extends PureComponent {
             "backgroundRepeat": "no-repeat",
             "backgroundSize": "cover",
         }
+
         return (
             <div
                 className="titleContainer"
@@ -59,13 +61,13 @@ class Landing extends PureComponent {
                 <div className="titleWrapper">
                     <div className="caption" id="caption">
                         <span className="border">
-                            <Link to="/gallery">GALLERY</Link>
+                            <Link to="/animal">GALLERY</Link>
                         </span>
                     </div>
                     <div className="titleWrapper cloneWrapper">
                         <div className="caption">
                             <span className="border">
-                                <Link to="/gallery">GALLERY</Link>
+                                <Link to="/animal">GALLERY</Link>
                             </span>
                         </div>
                     </div>

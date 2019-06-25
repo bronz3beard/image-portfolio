@@ -1,24 +1,35 @@
-import React, { PureComponent } from "react";
+import React, { PureComponent, Fragment } from "react";
 
 //Components
 
-class GalleryImage extends PureComponent {
+class Galleryimages extends PureComponent {
+
     render() {
-        const { src, alt, id, className, onClick } = this.props;
+        const { images, layout, showModal } = this.props;
 
         return (
-            <div className={className}>
-                <img
-                    id={id}
-                    draggable="false"
-                    src={src}
-                    alt={alt}
-                    onMouseDown={(event) => event.preventDefault()}
-                    onClick={onClick}
-                />
-            </div>
+            <Fragment>
+                {
+                    images && images.map((image) => {
+                        const img = image.fields.image.fields.file.url
+                        const copy = image.fields.copy
+                        return (
+                            <div key={image.sys.id} className={layout ? image.fields.theme : "wide-screen"}>
+                                <img
+                                    id={layout ? "" : "wide-screen"}
+                                    draggable="false"
+                                    src={img}
+                                    alt={image.fields.altText}
+                                    onMouseDown={(event) => event.preventDefault()}
+                                    onClick={(event) => showModal(img, copy, event)}
+                                />
+                            </div>
+                        );
+                    })
+                }
+            </Fragment>
         );
     }
 }
 
-export default GalleryImage;
+export default Galleryimages;

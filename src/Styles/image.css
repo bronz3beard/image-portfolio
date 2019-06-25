@@ -33,15 +33,19 @@
     /*border: 3px solid red;*/
 }
 .horizontal {
+    position: relative;
     overflow: hidden;
-    grid-column: span 4;
+    grid-column: span 3;
     opacity: 0.4;
     /*border: 3px solid blue;*/
 }.horizontal img {
     cursor: pointer;
+    position: absolute;
+    left: auto;
+    right: auto;
     margin-left: auto;
     margin-right: auto;
-    transform: translate(0%, -35%);
+    transform: translate(-30%, -42%);
 }.horizontal:hover {
     opacity: 1;
     width: 100%;
@@ -49,14 +53,17 @@
 }
 .vertical {
     overflow: hidden;
+    grid-column: span 3;
     grid-row: span 2;
     opacity: 0.4;
     /*border: 3px solid green*/
 }.vertical img {
     cursor: pointer;
+    left: auto;
+    right: auto;
     margin-left: auto;
     margin-right: auto;
-    transform: translate(-40%, -60%);
+    transform: translate(0%, 0%);
 }.vertical:hover {
     opacity: 1;
     width: 100%;
@@ -64,8 +71,8 @@
 }
 .square {
     overflow: hidden;
-    grid-column: span 2;
-    grid-row: span 2;
+    grid-column: span 3;
+    grid-row: span 3;
     opacity: 0.4;
     /*border: 3px solid yellow;*/
 }.square img {
@@ -81,8 +88,8 @@
 .modal-body img {
     float: left;
     border-radius: 4px;
-    max-width: 100%;
-    max-height: 100%;
+    width: 140%;
+    height: 100%;
     -webkit-overflow-scrolling: touch;
     overflow: hidden;
     margin: 10px;
