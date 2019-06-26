@@ -18,7 +18,7 @@ This project was bootstrapped with [create-react-app](https://github.com/faceboo
 - Hosted on [Heroku](https://www.heroku.com/)
 
 # Demo:
-* Current version of the [IMAGE_PORTFOLIO 0.7.0](https://image-gallery-feature.herokuapp.com).
+* Current version of the [IMAGE_PORTFOLIO 0.7.0](https://image-gallery-feature.herokuapp.com/gallery).
 
 # Collaborators:
 - @personA
