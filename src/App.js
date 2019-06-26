@@ -15,11 +15,7 @@ class App extends PureComponent {
       error: false,
       hasMore: false,
       isLoading: true,
-
-      startRequest: 0,
-      requestCount: 10,
       data: null,
-      image: [],
 
       isOpen: false,
       url: "",
@@ -31,7 +27,6 @@ class App extends PureComponent {
   componentDidMount() {
     const currentUrl = this.getUrl();
     window.addEventListener("popstate", this.handleClick, false);
-    //window.addEventListener("scroll", this.handleScroll, false);
 
     if (currentUrl) {
       // eslint-disable-next-line no-restricted-globals
@@ -40,7 +35,6 @@ class App extends PureComponent {
   }
   componentWillUnmount() {
     window.removeEventListener("popstate", this.handleCssChange, false);
-    //window.removeEventListener("scroll", this.handleScroll, false);
   }
   componentWillMount() {
     // Loads some data on initial load
@@ -97,8 +91,7 @@ class App extends PureComponent {
     });
   }
   render() {
-    const { error, hasMore, isLoading, data,
-      url, copy, isOpen, layout
+    const { error, hasMore, isLoading, data, url, copy, isOpen, layout
     } = this.state;
     
     if (isLoading) {
@@ -116,7 +109,7 @@ class App extends PureComponent {
       );
     }
     const landingImage = data && data.fields.landingImage.fields.file.url;
-
+    
     return (
       <Switch>
         <Route exact path={data.fields.url} render={props => (<Landing {...props} landingImage={landingImage} data={data.fields} />)} />
@@ -132,6 +125,7 @@ class App extends PureComponent {
           handleCssChange={this.handleCssChange}
           showModal={this.showModal}
           closeModal={this.closeModal}
+          getMoreImages={this.getMoreImages}
         />
         <Route component={NoMatch} />
       </Switch>

@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 
 //Components
 
-
 class Landing extends PureComponent {
     state = {
         x: 0,
@@ -61,13 +60,13 @@ class Landing extends PureComponent {
                 <div className="titleWrapper">
                     <div className="caption" id="caption">
                         <span className="border">
-                            <Link to="/animal">GALLERY</Link>
+                            <Link to="/gallery/animal">GALLERY</Link>
                         </span>
                     </div>
                     <div className="titleWrapper cloneWrapper">
                         <div className="caption">
                             <span className="border">
-                                <Link to="/animal">GALLERY</Link>
+                                <Link to="/gallery/animal">GALLERY</Link>
                             </span>
                         </div>
                     </div>

@@ -3,14 +3,21 @@ import React, { PureComponent, Fragment } from "react";
 //Components
 
 class Galleryimages extends PureComponent {
-
+    //The modern version of the Fisher–Yates shuffle
+    shuffle = (array) => {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+    }
     render() {
         const { images, layout, showModal } = this.props;
 
         return (
             <Fragment>
                 {
-                    images && images.map((image) => {
+                    images && this.shuffle(images).map((image) => {
                         const img = image.fields.image.fields.file.url
                         const copy = image.fields.copy
                         return (

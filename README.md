@@ -10,12 +10,15 @@ This project was bootstrapped with [create-react-app](https://github.com/faceboo
 - __is a__ Changeable image layout with a modal, landing page and has multiple ways of protecting your images.
 
 
+
 # Installation:
 - clone
 - npm install
+- Contenet CMS = [Contenful](https://www.contentful.com/)
+- Hosted on [Heroku](https://www.heroku.com/)
 
 # Demo:
-* Current version of the [IMAGE_PORTFOLIO 0.6.0](https://image-gallery-feature.herokuapp.com).
+* Current version of the [IMAGE_PORTFOLIO 0.7.0](https://image-gallery-feature.herokuapp.com).
 
 # Collaborators:
 - @personA

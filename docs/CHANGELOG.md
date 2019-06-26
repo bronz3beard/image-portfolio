@@ -11,6 +11,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - __Fixed__ for any bug fixes.
 - __Security__ in case of vulnerabilities.
 
+## [0.7.0] - 26-06-2019
+###Removed
+- infinite scroll, was not really needed for this content and became very difficult to implement nicley with contentful
+
+### Changed
+- Location of array randomizer to the gallery-image component to randomize rendering images.
+- updated Readme.MD
+
 ## [0.7.0] - 25-06-2019
 ###Changed
 - how the data is collected only using one fetch now, this has broken the infinite scroll for now

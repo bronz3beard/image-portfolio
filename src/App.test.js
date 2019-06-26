@@ -5,12 +5,13 @@ import Adapter from "enzyme-adapter-react-16";
 
 //Components
 import App from './App';
+import Gallery from "./Components/gallery";
 
 configure({ adapter: new Adapter() });
 
-describe("App Component", () => {
+describe("Gallery Component", () => {
   it("renders without crashing in 'debug' mode " + new Date(), () => {
-    const component = shallow(<App debug />);
+    const component = shallow(<Gallery data={[]} debug />);
     expect(component).toMatchSnapshot();
     component.unmount();
   });

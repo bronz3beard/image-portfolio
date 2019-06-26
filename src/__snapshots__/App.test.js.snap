@@ -1,20 +1,25 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`App Component renders without crashing in 'debug' mode Tue Jun 11 2019 18:05:56 GMT+1000 (Australian Eastern Standard Time) 1`] = `
+exports[`App Component renders without crashing in 'debug' mode Wed Jun 26 2019 18:06:04 GMT+1000 (Australian Eastern Standard Time) 1`] = `<Preloader />`;
+
+exports[`Gallery Component renders without crashing in 'debug' mode Wed Jun 26 2019 18:18:26 GMT+1000 (Australian Eastern Standard Time) 1`] = `
 <Fragment>
-  <Switch>
-    <Route
-      component={[Function]}
-      exact={true}
-      path="/"
+  <div
+    className="container-fluid galleryContainer"
+    id="photos"
+  >
+    <img
+      alt="icons8.com"
+      className="layout-change-icon"
+      onClick={[Function]}
+      src="puzzle.png"
     />
-    <Route
-      component={[Function]}
-      path="/gallery"
-    />
-    <Route
-      component={[Function]}
-    />
-  </Switch>
+  </div>
+  <footer>
+    <ScrollButton />
+    <p>
+      © Copyright message goes Here
+    </p>
+  </footer>
 </Fragment>
 `;

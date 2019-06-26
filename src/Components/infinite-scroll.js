@@ -8,12 +8,12 @@ class InfiniteScroll extends PureComponent {
         window.removeEventListener("scroll", this.handleScroll, false);
     }
     handleScroll = () => {
-        const { error, isLoading, hasMore, getAllContentfulImages } = this.props;
+        const { error, isLoading, hasMore, getMoreImages } = this.props;
         const scrolling = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - document.documentElement.clientHeight;
         
         if (error || isLoading || !hasMore) return;
         if (scrolling && hasMore) {
-            getAllContentfulImages();
+            getMoreImages();
         }
     }
     render() {

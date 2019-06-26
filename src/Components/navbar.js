@@ -8,13 +8,13 @@ class NavBar extends PureComponent {
                     <span>Gallery</span>
                 </div>
                 <ul>
-                    <li><Link to="/animal">Home</Link></li>
+                    <li><Link to="/gallery/animal">Home</Link></li>
                     <li><Link to="#">News</Link></li>
                     <li className="dropdown">
                         <Link to="#" className="dropbtn">Stills</Link>
                         <div className="dropdown-content">
-                            <Link to="/nature">Nature</Link>
-                            <Link to="#">Link 2</Link>
+                            <Link to="/gallery/nature">Nature</Link>
+                            <Link to="/gallery/urban">Urban</Link>
                             <Link to="#">Link 3</Link>
                         </div>
                     </li>
