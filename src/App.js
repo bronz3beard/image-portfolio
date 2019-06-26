@@ -35,9 +35,8 @@ class App extends PureComponent {
 
     if (currentUrl) {
       // eslint-disable-next-line no-restricted-globals
-      history.pushState(null, '', "/landing");
+      history.pushState(null, '', currentUrl);
     }
-    this.getAllContentfulData();
   }
   componentWillUnmount() {
     window.removeEventListener("popstate", this.handleCssChange, false);
@@ -45,8 +44,7 @@ class App extends PureComponent {
   }
   componentWillMount() {
     // Loads some data on initial load
-
-    //this.getAllContentfulImages();
+    this.getAllContentfulData();
   }
   getAllContentfulData = () => {
     const galleryUrl = this.getUrl();
