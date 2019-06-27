@@ -25,7 +25,6 @@ class Landing extends PureComponent {
             y: 0,
         });
     }
-
     render() {
         const { x, y } = this.state;
 

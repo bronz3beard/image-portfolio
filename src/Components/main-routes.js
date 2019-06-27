@@ -9,7 +9,7 @@ class MainRoutes extends PureComponent {
         const { data, url, copy, isOpen, 
             layout, handleCssChange, showModal, closeModal
         } = this.props;
-
+        
         const galleryPageRoutes = data.map(items => {
             return (
                 <Route
@@ -31,7 +31,7 @@ class MainRoutes extends PureComponent {
                 />
             );
         })
-    
+
         return (
             <Fragment>
                 {galleryPageRoutes}

@@ -1,12 +1,14 @@
-import React, { PureComponent } from "react";
+import React, { PureComponent, Fragment } from "react";
 import { Route, Switch } from "react-router-dom";
 import { getAll } from "./Contentful-Fetch/fetchData";
 
 //Components
 import Preloader from "./Components/preloader";
+import Contact from "./Components/contact-page";
 import Landing from "./Components/landing";
 import MainRoutes from "./Components/main-routes";
 import NoMatch from "./Components/no-match-page";
+import Footer from "./Components/footer";
 
 class App extends PureComponent {
   constructor(props) {
@@ -23,7 +25,7 @@ class App extends PureComponent {
   }
   componentDidMount() {
     const currentUrl = this.getUrl();
-    window.addEventListener("popstate", this.handleClick, false);
+    window.addEventListener("popstate", this.handleNavHide, false);
 
     if (currentUrl) {
       // eslint-disable-next-line no-restricted-globals
@@ -31,7 +33,7 @@ class App extends PureComponent {
     }
   }
   componentWillUnmount() {
-    window.removeEventListener("popstate", this.handleCssChange, false);
+    window.removeEventListener("popstate", this.handleNavHide, false);
   }
   componentWillMount() {
     // Loads some data on initial load
@@ -107,22 +109,26 @@ class App extends PureComponent {
     const landingImage = data && data.fields.landingImage.fields.file.url;
     
     return (
-      <Switch>
-        <Route exact path={data.fields.url} render={props => (<Landing {...props} landingImage={landingImage} data={data.fields} />)} />
-        <MainRoutes
-          error={error}
-          isLoading={isLoading}
-          data={data.fields.pageAssembly}
-          url={url}
-          copy={copy}
-          isOpen={isOpen}
-          layout={layout}
-          handleCssChange={this.handleCssChange}
-          showModal={this.showModal}
-          closeModal={this.closeModal}
-        />
-        <Route component={NoMatch} />
-      </Switch>
+      <Fragment>
+        <Switch>
+          <Route exact path={data.fields.url} render={props => (<Landing {...props} landingImage={landingImage} data={data.fields} />)} />
+          <Route path="/gallery/contact" render={props => (<Contact data={data.fields.pageAssembly}/>)} />
+          <MainRoutes
+            error={error}
+            isLoading={isLoading}
+            data={data.fields.pageAssembly}
+            url={url}
+            copy={copy}
+            isOpen={isOpen}
+            layout={layout}
+            handleCssChange={this.handleCssChange}
+            showModal={this.showModal}
+            closeModal={this.closeModal}
+          />
+          <Route component={NoMatch} />
+        </Switch>
+        <Footer />
+      </Fragment>
     );
   }
 }

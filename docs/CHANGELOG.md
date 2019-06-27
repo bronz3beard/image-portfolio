@@ -20,6 +20,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ###Added 
 - started responsive layout for devices iphone, iwatch, ipad, galaxy, galaxy tab, google pixel 
+- Markdown to html parser, this was added for rendering content on the contact page, unsure if it will stay. [react-markdown](https://github.com/rexxars/react-markdown) 
+- footer component
+- contact page
 
 ## [0.7.0] - 26-06-2019
 ###Removed
