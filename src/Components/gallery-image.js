@@ -12,7 +12,7 @@ class Galleryimages extends PureComponent {
         return array;
     }
     render() {
-        const { images, layout, showModal } = this.props;
+        const { images, layout, showModal, parentTheme } = this.props;
 
         return (
             <Fragment>
@@ -21,9 +21,9 @@ class Galleryimages extends PureComponent {
                         const img = image.fields.image.fields.file.url
                         const copy = image.fields.copy
                         return (
-                            <div key={image.sys.id} className={layout ? image.fields.theme : "wide-screen"}>
+                            <div key={image.sys.id} className={layout ? parentTheme + image.fields.theme : parentTheme + "wide-screen"}>
                                 <img
-                                    id={layout ? "" : "wide-screen"}
+                                    id={layout ? "" : parentTheme + "wide-screen"}
                                     draggable="false"
                                     src={img}
                                     alt={image.fields.altText}

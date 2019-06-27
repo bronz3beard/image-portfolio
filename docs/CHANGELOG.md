@@ -11,6 +11,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - __Fixed__ for any bug fixes.
 - __Security__ in case of vulnerabilities.
 
+## [0.7.1] - 26-06-2019
+##Removed
+- infinite scroll component
+
+### Changed
+- layout change icon will not be available for screens smaller than 667px wide
+
+###Added 
+- started responsive layout for devices iphone, iwatch, ipad, galaxy, galaxy tab, google pixel 
+
 ## [0.7.0] - 26-06-2019
 ###Removed
 - infinite scroll, was not really needed for this content and became very difficult to implement nicley with contentful

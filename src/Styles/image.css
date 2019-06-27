@@ -11,15 +11,63 @@
     -webkit-animation: fadein 6s; /* Safari and Chrome */
     -o-animation: fadein 6s; /* Opera */
 }
-.wide-screen img {
+.modal-body img {
+    float: left;
+    border-radius: 4px;
+    width: 140%;
+    height: 100%;
+    -webkit-overflow-scrolling: touch;
+    overflow: hidden;
+    margin: 10px;
+}
+.animal-wide-screen {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+    margin-top: 4px;
+}
+.animal-wide-screen img {
+    width: 100%;
+    height: 1099px;
+    opacity: 0.8;
+    transform: translate(0%, -24%);
+}
+#animal-wide-screen:hover {
+    opacity: 1;
+}
+.nature-wide-screen {
+    position: relative;
+    overflow: hidden;
+}
+.nature-wide-screen img {
     cursor: pointer;
     object-fit: cover;
     opacity: 0.8;
     margin-top: 10px;
     width: 100%;
     height: 500px !important;
+    transform: translate(0%, 0%);
 }
-#wide-screen:hover {
+#nature-wide-screen:hover {
+    opacity: 1;
+    width: 100%;
+    height: 100%;
+}
+.urban-wide-screen {
+    position: relative;
+    overflow: hidden;
+}
+.urban-wide-screen img {
+    cursor: pointer;
+    object-fit: cover;
+    opacity: 0.8;
+    margin-top: 10px;
+    width: 100%;
+    height: 500px !important;
+    transform: translate(0%, 0%);
+}
+#urban-wide-screen:hover {
     opacity: 1;
     width: 100%;
     height: 100%;
@@ -30,70 +78,238 @@
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     grid-auto-rows: 200px;
     grid-auto-flow: dense;
+    margin-top: 4px;
     /*border: 3px solid red;*/
 }
-.horizontal {
+.animal-horizontal {
     position: relative;
     overflow: hidden;
-    grid-column: span 3;
+    grid-column: span 4;
     opacity: 0.4;
     /*border: 3px solid blue;*/
-}.horizontal img {
+}.animal-horizontal img {
+    width: 150%;
+	height: auto;
     cursor: pointer;
-    position: absolute;
     left: auto;
     right: auto;
     margin-left: auto;
     margin-right: auto;
-    transform: translate(-30%, -42%);
-}.horizontal:hover {
+    transform: translate(-30%, -35%);
+}.animal-horizontal:hover {
     opacity: 1;
     width: 100%;
     height: 100%;
 }
-.vertical {
+.animal-vertical {
     overflow: hidden;
-    grid-column: span 3;
+    grid-column: span 1;
     grid-row: span 2;
     opacity: 0.4;
     /*border: 3px solid green*/
-}.vertical img {
+}.animal-vertical img {
+    width: auto;
+	height: 150%;
     cursor: pointer;
     left: auto;
     right: auto;
     margin-left: auto;
     margin-right: auto;
-    transform: translate(0%, 0%);
-}.vertical:hover {
+    transform: translate(0%, -10%);
+}.animal-vertical:hover {
     opacity: 1;
     width: 100%;
     height: 100%;
 }
-.square {
+.animal-square {
     overflow: hidden;
-    grid-column: span 3;
+    grid-column: span 2;
     grid-row: span 3;
     opacity: 0.4;
     /*border: 3px solid yellow;*/
-}.square img {
+}.animal-square img {
+    width: auto;
+	height: auto;
     cursor: pointer;
     margin-left: auto;
     margin-right: auto;
-    transform: translate(-30%, -25%);
-}.square:hover {
+    transform: translate(-30%, -20%);
+}.animal-square:hover {
     opacity: 1;
     width: 100%;
     height: 100%;
 }
-.modal-body img {
-    float: left;
-    border-radius: 4px;
-    width: 140%;
-    height: 100%;
-    -webkit-overflow-scrolling: touch;
+.animal-small {
     overflow: hidden;
-    margin: 10px;
+    grid-column: span 2;
+    grid-row: span 1;
+    opacity: 0.4;
+    /*border: 3px solid yellow;*/
+}.animal-small img {
+    width: auto;
+	height: auto;
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: auto;
+    transform: translate(-60%, -60%);
+}.animal-small:hover {
+    opacity: 1;
+    width: 100%;
+    height: 100%;
 }
+.nature-horizontal {
+    position: relative;
+    overflow: hidden;
+    grid-column: span 4;
+    opacity: 0.4;
+    /*border: 3px solid blue;*/
+}.nature-horizontal img {
+    width: 150%;
+	height: auto;
+    cursor: pointer;
+    left: auto;
+    right: auto;
+    margin-left: auto;
+    margin-right: auto;
+    transform: translate(-30%, -35%);
+}.nature-horizontal:hover {
+    opacity: 1;
+    width: 100%;
+    height: 100%;
+}
+.nature-vertical {
+    overflow: hidden;
+    grid-column: span 1;
+    grid-row: span 2;
+    opacity: 0.4;
+    /*border: 3px solid green*/
+}.nature-vertical img {
+    width: auto;
+	height: 150%;
+    cursor: pointer;
+    left: auto;
+    right: auto;
+    margin-left: auto;
+    margin-right: auto;
+    transform: translate(0%, -10%);
+}.nature-vertical:hover {
+    opacity: 1;
+    width: 100%;
+    height: 100%;
+}
+.nature-square {
+    overflow: hidden;
+    grid-column: span 2;
+    grid-row: span 3;
+    opacity: 0.4;
+    /*border: 3px solid yellow;*/
+}.nature-square img {
+    width: auto;
+	height: auto;
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: auto;
+    transform: translate(-30%, -20%);
+}.nature-square:hover {
+    opacity: 1;
+    width: 100%;
+    height: 100%;
+}
+.nature-small {
+    overflow: hidden;
+    grid-column: span 2;
+    grid-row: span 1;
+    opacity: 0.4;
+    /*border: 3px solid yellow;*/
+}.nature-small img {
+    width: auto;
+	height: auto;
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: auto;
+    transform: translate(-60%, -60%);
+}.nature-small:hover {
+    opacity: 1;
+    width: 100%;
+    height: 100%;
+}
+.urban-horizontal {
+    position: relative;
+    overflow: hidden;
+    grid-column: span 4;
+    opacity: 0.4;
+    /*border: 3px solid blue;*/
+}.urban-horizontal img {
+    width: 150%;
+	height: auto;
+    cursor: pointer;
+    left: auto;
+    right: auto;
+    margin-left: auto;
+    margin-right: auto;
+    transform: translate(-30%, -35%);
+}.urban-horizontal:hover {
+    opacity: 1;
+    width: 100%;
+    height: 100%;
+}
+.urban-vertical {
+    overflow: hidden;
+    grid-column: span 1;
+    grid-row: span 2;
+    opacity: 0.4;
+    /*border: 3px solid green*/
+}.urban-vertical img {
+    width: auto;
+	height: 150%;
+    cursor: pointer;
+    left: auto;
+    right: auto;
+    margin-left: auto;
+    margin-right: auto;
+    transform: translate(0%, -10%);
+}.urban-vertical:hover {
+    opacity: 1;
+    width: 100%;
+    height: 100%;
+}
+.urban-square {
+    overflow: hidden;
+    grid-column: span 2;
+    grid-row: span 3;
+    opacity: 0.4;
+    /*border: 3px solid yellow;*/
+}.urban-square img {
+    width: auto;
+	height: auto;
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: auto;
+    transform: translate(-30%, -20%);
+}.urban-square:hover {
+    opacity: 1;
+    width: 100%;
+    height: 100%;
+}
+.urban-small {
+    overflow: hidden;
+    grid-column: span 2;
+    grid-row: span 1;
+    opacity: 0.4;
+    /*border: 3px solid yellow;*/
+}.urban-small img {
+    width: auto;
+	height: auto;
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: auto;
+    transform: translate(-60%, -60%);
+}.urban-small:hover {
+    opacity: 1;
+    width: 100%;
+    height: 100%;
+}
+
 @media print {
     #Myimage {
         width: 40% !important;

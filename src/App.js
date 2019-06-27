@@ -13,14 +13,11 @@ class App extends PureComponent {
     super(props);
     this.state = {
       error: false,
-      hasMore: false,
       isLoading: true,
       data: null,
-
       isOpen: false,
       url: "",
       copy: "",
-
       layout: false,
     };
   }
@@ -91,8 +88,7 @@ class App extends PureComponent {
     });
   }
   render() {
-    const { error, hasMore, isLoading, data, url, copy, isOpen, layout
-    } = this.state;
+    const { error, isLoading, data, url, copy, isOpen, layout } = this.state;
     
     if (isLoading) {
       return (
@@ -119,13 +115,11 @@ class App extends PureComponent {
           data={data.fields.pageAssembly}
           url={url}
           copy={copy}
-          hasMore={hasMore}
           isOpen={isOpen}
           layout={layout}
           handleCssChange={this.handleCssChange}
           showModal={this.showModal}
           closeModal={this.closeModal}
-          getMoreImages={this.getMoreImages}
         />
         <Route component={NoMatch} />
       </Switch>
@@ -134,31 +128,3 @@ class App extends PureComponent {
 }
 
 export default App;
-
-/*loaddata = () => {
-  const { data, startRequest, requestCount } = this.state;
-  const xmlhr = new XMLHttpRequest();
-  const url = `https://jsonplaceholder.typicode.com/photos?_start=${startRequest}&_limit=${requestCount}`;
-  this.setState({ isLoading: true });
-
-  xmlhr.open("GET", url, true);
-  xmlhr.onload = () => {
-      if (xmlhr.readyState === xmlhr.DONE) {
-          if (xmlhr.status === 200) {
-              const nextdata = JSON.parse(xmlhr.responseText)
-              this.setState({
-                  startRequest: startRequest + requestCount,
-                  data: [...data, ...nextdata],
-                  hasMore: (data.length >= startRequest),
-                  isLoading: false,
-              });
-          } else {
-              this.setState({
-                  error: true,
-                  isLoading: false,
-              });
-          }
-      }
-  };
-  xmlhr.send();
-}*/

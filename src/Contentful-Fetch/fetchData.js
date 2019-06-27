@@ -4,7 +4,6 @@ const SPACE_ID = process.env.REACT_APP_SPACE_ID;
 const DELIVERY_ACCESS_TOKEN = process.env.REACT_APP_ACCESS_TOKEN; //DELIVERY <- Gathers all content that is published
 const ENTRY_ID = process.env.REACT_APP_ENTRY_ID;
 const ENTRIES_TYPE_ID = process.env.REACT_APP_ENTRIES_TYPE_ID;
-const ASSESTS_TYPE_ID = process.env.REACT_APP_ASSETS_TYPE_ID;
 
 const client = contentful.createClient({
   entry_id: ENTRY_ID,
