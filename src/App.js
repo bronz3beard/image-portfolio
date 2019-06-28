@@ -8,7 +8,6 @@ import Contact from "./Components/contact-page";
 import Landing from "./Components/landing";
 import MainRoutes from "./Components/main-routes";
 import NoMatch from "./Components/no-match-page";
-import Footer from "./Components/footer";
 
 class App extends PureComponent {
   constructor(props) {
@@ -106,13 +105,13 @@ class App extends PureComponent {
         </div>
       );
     }
-    const landingImage = data && data.fields.landingImage.fields.file.url;
+    const landingImage = data.fields.landingImage.fields.file.url;
     
     return (
       <Fragment>
         <Switch>
           <Route exact path={data.fields.url} render={props => (<Landing {...props} landingImage={landingImage} data={data.fields} />)} />
-          <Route path="/gallery/contact" render={props => (<Contact data={data.fields.pageAssembly}/>)} />
+          <Route path="/gallery/contact" render={props => (<Contact data={data.fields.pageAssembly} getUrl={this.getUrl} />)} />
           <MainRoutes
             error={error}
             isLoading={isLoading}
@@ -127,7 +126,6 @@ class App extends PureComponent {
           />
           <Route component={NoMatch} />
         </Switch>
-        <Footer />
       </Fragment>
     );
   }

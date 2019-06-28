@@ -11,6 +11,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - __Fixed__ for any bug fixes.
 - __Security__ in case of vulnerabilities.
 
+## [0.8.0] - 29-06-2019
+##Removed
+- parrallax style sheet and renamed to landing-parrallax
+
+### Changed
+- still changing mobile layouts
+
+###Added 
+- contact form and connected it to [Airtable](https://airtable.com/) to collect contact details Locations still not recording in table other fields are
+- particle canvas to go behinde contact form, still not sure on colors and pattern will review
+- airtable package
+- details to env and updated env.example
+
+
+
 ## [0.7.1] - 26-06-2019
 ##Removed
 - infinite scroll component

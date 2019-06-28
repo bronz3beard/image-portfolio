@@ -3,7 +3,7 @@
 //Components
 import NavBar from "./navbar";
 import Preloader from "./preloader";
-
+import Footer from "./footer";
 //Icons
 import icon from "../Icons/puzzle.png";
 
@@ -58,6 +58,7 @@ class Gallery extends PureComponent {
           {width > 667 ? <img src={icon} alt="icons8.com" className="layout-change-icon" onClick={this.handleCssChange} /> : null}
           {isLoading && <Preloader />}
         </div>
+        <Footer />
       </Fragment>
     )
   }

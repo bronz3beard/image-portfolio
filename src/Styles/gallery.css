@@ -63,6 +63,7 @@ body {
 }
 
 footer  {
+    bottom: 0;
     display: block;
     padding: 1.5em;
     height: 100%;

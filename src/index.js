@@ -11,9 +11,10 @@ import * as serviceWorker from "./serviceWorker";
 import "./Styles/preloader.css";
 import "./Styles/contextmenu.css";
 import "./Styles/navi.css";
-import "./Styles/parallax.css";
+import "./Styles/landing-parallax.css";
 import "./Styles/gallery.css";
 import "./Styles/image.css";
+import "./Styles/contact.css"
 import "./Styles/responsive-apple.css";
 
 ReactDOM.render(
