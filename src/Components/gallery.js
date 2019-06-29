@@ -55,7 +55,7 @@ class Gallery extends PureComponent {
           }
           {isOpen ? <Suspense fallback={<Preloader />}><Modal src={url} copy={copy} onClick={this.closeModal} /></Suspense> : null}
 
-          {width > 667 ? <img src={icon} alt="icons8.com" className="layout-change-icon" onClick={this.handleCssChange} /> : null}
+          {width > 850 ? <img src={icon} alt="icons8.com" className="layout-change-icon" onClick={this.handleCssChange} /> : null}
           {isLoading && <Preloader />}
         </div>
         <Footer />
