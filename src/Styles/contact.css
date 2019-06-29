@@ -1,52 +1,80 @@
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'PT Sans Narrow', sans-serif;
     text-align: center;
 }
 * {
     box-sizing: border-box;
 }
 .contact {
+
     background-color: white;
     height: 100vh;
 }
 form {
+    font-size: 14px;
+    text-align: left;
     position: relative;
     z-index: 9;
-    margin-top: 2%;
+    margin-top: 5%;
     display: inline-block;
-    border-radius: 5px;
+    border-radius: 2px;
+    box-shadow: -10px 10px 0px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.20);
     color: white;
-    background-color:  #333;
+    background: linear-gradient(180deg, #ee5511 .5%, 10%, #aa2211,  transparent);
+    /*border: 5px solid;*/
+    /*border-color: rgb( 238, 100, 60 );*/
     width: 20%;
+}
+.contact p, h4 {
+    margin-left: 5%;
+}
+.contact label {
+    border: 5px solid;
+    margin-left: 2%;
 }
 
 input[type=text], select, textarea {
+    font-size: 14px;
+    font-family: 'PT Sans Narrow', sans-serif;
     width: 90%;
-    padding: 12px;
+    margin-left: 5%;
+    margin-bottom: 1%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+input[type=email] {
+    font-size: 14px;
+    font-family: 'PT Sans Narrow', sans-serif;
+    width: 90%;
+    margin-left: 5%;
+    margin-bottom: 1%;
+    padding: 5px;
     border: 1px solid #ccc;
     border-radius: 4px;
     resize: vertical;
 }
   
-label {
-    padding: 12px 12px 12px 0;
-    display: inline-block;
-}
-  
 input[type=submit] {
-    background-color: #112233;
+    font-family: 'PT Sans Narrow', sans-serif;
+    width: 90%;
+    margin-left: 5%;
+    margin-bottom: 1%;
+    padding: 5px;
+    resize: vertical;
     color: white;
-    padding: 12px 100px;
-    margin-bottom: 2%;
-    margin-top: 2%;
-    border-radius: 4px;
-    border: none;
+    background-color: transparent;
+    border: transparent;
     cursor: pointer;
-    float: inherit;
 }
   
 input[type=submit]:hover {
-    background-color: blue;
+    border: 1px solid;
+    border-radius: 4px;
+    border-color: rgb( 238, 100, 60 );
+    /*background-color: #112233;*/
 }
   
 .col-25 {
@@ -60,15 +88,20 @@ input[type=submit]:hover {
     width: 75%;
     margin-top: 6px;
 }
-  
-  /* Clear floats after the columns */
+/* Clear floats after the columns */
 .row:after {
     content: "";
     display: table;
     clear: both;
 }
   
-  /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+textarea {
+    margin-left: 5%;
+    font-size: 14px;
+    max-width: 500px;
+    max-height: 100px
+}
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 600px) {
     .col-25, .col-75, input[type=submit] {
       width: 100%;

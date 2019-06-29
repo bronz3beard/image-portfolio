@@ -17,14 +17,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - still changing mobile layouts
+- form css styling and particle colour
 
 ###Added 
 - contact form and connected it to [Airtable](https://airtable.com/) to collect contact details Locations still not recording in table other fields are
 - particle canvas to go behinde contact form, still not sure on colors and pattern will review
 - airtable package
 - details to env and updated env.example
-
-
+- email validation to contact form
 
 ## [0.7.1] - 26-06-2019
 ##Removed

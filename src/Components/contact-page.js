@@ -42,19 +42,9 @@ class Contact extends PureComponent {
         /*opacity: Math.random() * 10 - 5,*/
         visable: false,
     };
-    componentDidMount() {
-        const currentUrl = this.getUrl();
 
-        if (currentUrl) {
-            // eslint-disable-next-line no-restricted-globals
-            history.pushState(null, '', currentUrl);
-        }
-    }
     postToAirTable = () => {
         const { formControls } = this.state;
-        const name = "";
-        const value = "";
-
         //const base = new Airtable({ apiKey: REACT_APP_API_KEY }).base('appuhJdBl6QlAoRLl');
         const url = `https://api.airtable.com/v0/${AIRTABLE_BASE}/${AIRTABLE_TABLE}`;
         const fields = {
@@ -74,7 +64,20 @@ class Contact extends PureComponent {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(fields)
-        }).then(() => alert("Form Sent!"),  
+        }).then(() => {
+            alert("Form Sent!");
+            window.location.reload();
+        }).catch(error => alert(error));
+    }
+    handleSubmit = (event) => {
+        event.preventDefault();
+        this.postToAirTable();        
+    }
+    changeHandler = (event) => {
+        const { formControls } = this.state;
+        const name = event.target.name;
+        const value = event.target.value;
+
         this.setState({
             formControls: {
                 ...formControls,
@@ -83,18 +86,11 @@ class Contact extends PureComponent {
                     value
                 }
             }
-        }))
-        .catch(error => alert(error))
+        });
     }
-    handleSubmit = (event) => {
-        event.preventDefault();
-        this.postToAirTable();
-    }
-    getUrl = () => {
-        this.props.getUrl();
-    }
+
     getRandomColor = () => {
-        var r = 0, g = 0, b = 0;
+        let r = 0, g = 0, b = 0;
         while (r < 100 && g < 100 && b < 100) {
             r = Math.floor(Math.random() * 256);
             g = Math.floor(Math.random() * 256);
@@ -131,30 +127,12 @@ class Contact extends PureComponent {
         });
         console.log(visable);
     }
-    changeHandler = (event) => {
-        const { formControls } = this.state;
-        const name = event.target.name;
-        const value = event.target.value;
-
-        this.setState({
-            formControls: {
-                ...formControls,
-                [name]: {
-                    ...formControls[name],
-                    value
-                }
-            }
-        });
-    }
     render() {
         const { formControls, coorx, coory, radius, opacity } = this.state; //visable,
         const { data } = this.props;
-
-        const galleryUrl = window.location.pathname;
-        const contactDetails = data.find(item => item.fields.url === galleryUrl);
-
+        
         const details =
-            <div key={contactDetails.sys.id} className={contactDetails.fields.theme}>
+            <div key={data.sys.id} className={data.fields.theme}>
                 <Animation
                     id="animation"
                     handleMouseEvent={this.handleMouseMoveEvent}
@@ -163,24 +141,25 @@ class Contact extends PureComponent {
                     radius={radius}
                     opacity={opacity}
                 />
-                    <form onSubmit={this.handleSubmit}>
-                        <ReactMarkdown>
-                            {contactDetails.fields.copy}
-                        </ReactMarkdown>
-                        <span>First Name <input type="text" name="name" value={formControls.name.value} onChange={(event) => this.changeHandler(event)} /></span>
-                        <span>Surname Name <input type="text" name="surname" value={formControls.surname.value} onChange={(event) => this.changeHandler(event)} /></span>
-                        <span>Email <input type="text" name="email" value={formControls.email.value} onChange={(event) => this.changeHandler(event)} /></span>
-                        <span>Location
-                            <select id="country" name="location" onChange={(event) => this.changeHandler(event)}>
-                                <option value={formControls.location.value}>Australia</option>
-                                <option value={formControls.location.value}>Argentina</option>
-                                <option value={formControls.location.value}>USA</option>
-                            </select>
-                        </span>
-                        <span>Subject <input type="text" name="subject" value={formControls.subject.value} onChange={(event) => this.changeHandler(event)} /></span>
-                        <span>Message <textarea rows="4" cols="50" name="message" value={formControls.message.value} onChange={(event) => this.changeHandler(event)} /></span>
-                        <span><input type="submit" value="Post" /></span>
-                    </form>
+                <form id="contact-form" onSubmit={this.handleSubmit}>
+                    <ReactMarkdown>
+                        {data.fields.copy}
+                    </ReactMarkdown>
+                    <span><input type="text" name="name" placeholder="Name" value={formControls.name.value} onChange={(event) => this.changeHandler(event)} /></span>
+                    <span><input type="text" name="surname" placeholder="Surname" value={formControls.surname.value} onChange={(event) => this.changeHandler(event)} /></span>
+                    <span><input type="email" name="email" placeholder="Email" required value={formControls.email.value} onChange={(event) => this.changeHandler(event)} /></span>
+                    <span>
+                        <select id="country" name="location" placeholder="Select your location" onChange={(event) => this.changeHandler(event)}>
+                            <option value="">Please select you location</option>
+                            <option value="AU-AUS-36+61">Australia</option>
+                            <option value="AR-ARG-32+54">Argentina</option>
+                            <option value="UR-URY-858+598">Uruguay</option>
+                        </select>
+                    </span>
+                    <span><input type="text" name="subject" placeholder="Topic" value={formControls.subject.value} onChange={(event) => this.changeHandler(event)} /></span>
+                    <span><textarea rows="4" cols="50" name="message" placeholder="How can we help" value={formControls.message.value} onChange={(event) => this.changeHandler(event)} /></span>
+                    <span><input type="submit" value="Post" /></span>
+                </form>
             </div>
 
         return (

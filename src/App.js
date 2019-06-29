@@ -24,24 +24,19 @@ class App extends PureComponent {
   }
   componentDidMount() {
     const currentUrl = this.getUrl();
-    window.addEventListener("popstate", this.handleNavHide, false);
 
     if (currentUrl) {
       // eslint-disable-next-line no-restricted-globals
-      history.pushState(null, '', currentUrl);
+      history.pushState(null, '', "/gallery");
     }
-  }
-  componentWillUnmount() {
-    window.removeEventListener("popstate", this.handleNavHide, false);
   }
   componentWillMount() {
     // Loads some data on initial load
     this.getAllContentfulData();
   }
   getAllContentfulData = () => {
-    const galleryUrl = this.getUrl();
     getAll().then((galleries) => {
-      const galleryData = galleries.find(item => item.fields.url === galleryUrl);
+      const galleryData = this.findUrl(galleries);
       if (!galleryData || galleryData === "undefined") {
         this.setState({
           isLoading: false,
@@ -59,6 +54,11 @@ class App extends PureComponent {
     const currentURL = window.location.pathname.split('/')[1];
     //console.log("TCL: App -> getUrl -> currentURL", currentURL)
     return `/${currentURL}`;
+  }
+  findUrl = (array) => {
+    const galleryUrl = this.getUrl();
+    const urlData = array.find(item => item.fields.url === galleryUrl);
+    return urlData;
   }
   handleCssChange = () => {
     const { layout } = this.state;
@@ -107,11 +107,13 @@ class App extends PureComponent {
     }
     const landingImage = data.fields.landingImage.fields.file.url;
     
+    const contactDetails = data.fields.pageAssembly.find(item => item.fields.url === "/gallery/contact");
+
     return (
       <Fragment>
         <Switch>
           <Route exact path={data.fields.url} render={props => (<Landing {...props} landingImage={landingImage} data={data.fields} />)} />
-          <Route path="/gallery/contact" render={props => (<Contact data={data.fields.pageAssembly} getUrl={this.getUrl} />)} />
+          <Route path="/gallery/contact" render={props => (<Contact {...props} data={contactDetails} />)} />
           <MainRoutes
             error={error}
             isLoading={isLoading}

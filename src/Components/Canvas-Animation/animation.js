@@ -95,7 +95,7 @@ class Animation extends PureComponent {
             context.beginPath();
 
             //Colour Styling of Particles
-            context.fillStyle = "hsla(0, 0%, 100%, 0.2)";// "hsl(" + parseInt(Math.random() * 360, 10) + "50%, 50%)";
+            context.fillStyle = "hsla(0, 0%, 100%, 0.2)"; //'hsla(' + (Math.random() * 360, 5) + ', 100%, 50%, 0.2)';
 
             //Location to draw Particles and the size of the particle
             context.arc(this.parX, this.parY, Math.random() * (10 - 5) + 1, 0, Math.PI * 2, true);
