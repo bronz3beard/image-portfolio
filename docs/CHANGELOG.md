@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - __Fixed__ for any bug fixes.
 - __Security__ in case of vulnerabilities.
 
+## [0.8.0] - 30-06-2019
+### Changed
+- mobile device CSS layouts
+
 ## [0.8.0] - 29-06-2019
 ##Removed
 - parrallax style sheet and renamed to landing-parrallax
