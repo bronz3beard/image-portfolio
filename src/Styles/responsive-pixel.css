@@ -27,8 +27,60 @@
 @media (max-width: 360px) 
   and (max-height: 640px) 
   and (-webkit-device-pixel-ratio: 4) {
-
-}
+    .animal-wide-screen img {
+      object-fit: cover;
+      height: 450px;
+      opacity: 1;
+      transform: translate(0%, -24%);
+    }
+    .nature-wide-screen img {
+      object-fit: cover;
+      height: 350px !important;
+      opacity: 1;
+      transform: translate(0%, 0%);
+    }
+    .urban-wide-screen img {
+      object-fit: cover;
+      height: 350px !important;
+      opacity: 1;
+      transform: translate(0%, 0%);
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 10;
+    }
+    form {
+      font-size: 14px;
+      text-align: left;
+      position: relative;
+      z-index: 9;
+      margin-top: 5%;
+      display: inline-block;
+      border-radius: 2px;
+      box-shadow: -10px 10px 0px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.20);
+      color: white;
+      background: linear-gradient(180deg, #ee5511 .5%, 10%, #aa2211,  transparent);
+      /*border: 5px solid;*/
+      /*border-color: rgb( 238, 100, 60 );*/
+      width: 80%;
+    }
+    input[type=submit] {
+      font-family: 'PT Sans Narrow', sans-serif;
+      width: 90%;
+      margin-left: 5%;
+      margin-bottom: 1%;
+      padding: 5px;
+      resize: vertical;
+      color: white;
+      background-color: transparent;
+      border: transparent;
+      cursor: pointer;
+    }
+  }
 
 /* Portrait */
 @media (max-width: 360px) 
