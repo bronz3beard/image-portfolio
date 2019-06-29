@@ -16,6 +16,7 @@ import "./Styles/gallery.css";
 import "./Styles/image.css";
 import "./Styles/contact.css"
 import "./Styles/responsive-apple.css";
+import "./Styles/responsive-pixel.css"
 
 ReactDOM.render(
   <BrowserRouter>
