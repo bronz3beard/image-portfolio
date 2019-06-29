@@ -15,11 +15,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - mobile device CSS layouts
 
+##Removed
+- removed findUrl function
+
 ## [0.8.0] - 29-06-2019
 ##Removed
 - parrallax style sheet and renamed to landing-parrallax
 
-### Changed
+###Changed
 - still changing mobile layouts
 - form css styling and particle colour
 
@@ -34,7 +37,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ##Removed
 - infinite scroll component
 
-### Changed
+###Changed
 - layout change icon will not be available for screens smaller than 667px wide
 
 ###Added 
@@ -47,7 +50,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ###Removed
 - infinite scroll, was not really needed for this content and became very difficult to implement nicley with contentful
 
-### Changed
+###Changed
 - Location of array randomizer to the gallery-image component to randomize rendering images.
 - updated Readme.MD
 
@@ -55,7 +58,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ###Changed
 - how the data is collected only using one fetch now, this has broken the infinite scroll for now
 
-### Added
+###Added
 - A Second Page for showing differnet style of photography 
 - a main routes page to handle dynamically added pages and content from contenful
 - further updates to Css and refining Css code
@@ -65,7 +68,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ###Changed
 - WIP chnaging and adjusting css for gallery layout options
 
-### Added
+###Added
 - New font PT Sans Narrow
 - WIP nav bar options 
 
@@ -77,10 +80,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ###Changed
 - fetch data added fetch for image array
 
-### Added
+###Added
 - working functionality to reusable infinite scroll component
 
-### Removed
+###Removed
 - nested mappings in gallery
 
 ## [0.4.0] - 18-06-2019
@@ -88,11 +91,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - updated and consolodated some css styles
 - context menue
 
-### Added
+###Added
 - infinite scroll component (not functioning)
 - lazy loading for imges
 
-### Removed
+###Removed
 - some css style files
 
 ## [0.4.0] - 17-06-2019
@@ -101,11 +104,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - moved state to app
 - updated some css styles
 
-### Added
+###Added
 - started to add content to [Contenful](https://www.contentful.com/) 
 - fetch data component to get data from contentful
 
-### Removed
+###Removed
 - state from gallery
 - local image for landing page
 
@@ -116,7 +119,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - preloader colours
 - css has been refined removed unused + duplicate styles
 
-### Added
+###Added
 - custom context menu
 - navbar place holder
 - getScrollLocation function
@@ -127,13 +130,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ###Changed
 - routing
 
-### Added
+###Added
 - icons and one of my own images for landing page
 - infinite scroll WIP
 
 ## [0.1.0] - 06-06-2019
 
-### Added
+###Added
 - Ability to test components
 - CSS
 - README

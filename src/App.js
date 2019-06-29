@@ -27,7 +27,7 @@ class App extends PureComponent {
 
     if (currentUrl) {
       // eslint-disable-next-line no-restricted-globals
-      history.pushState(null, '', "/gallery");
+      history.pushState(null, '', currentUrl);
     }
   }
   componentWillMount() {
@@ -35,8 +35,9 @@ class App extends PureComponent {
     this.getAllContentfulData();
   }
   getAllContentfulData = () => {
+    const galleryUrl = this.getUrl();
     getAll().then((galleries) => {
-      const galleryData = this.findUrl(galleries);
+      const galleryData = galleries && galleries.find(item => item.fields.url === galleryUrl);
       if (!galleryData || galleryData === "undefined") {
         this.setState({
           isLoading: false,
@@ -54,11 +55,6 @@ class App extends PureComponent {
     const currentURL = window.location.pathname.split('/')[1];
     //console.log("TCL: App -> getUrl -> currentURL", currentURL)
     return `/${currentURL}`;
-  }
-  findUrl = (array) => {
-    const galleryUrl = this.getUrl();
-    const urlData = array.find(item => item.fields.url === galleryUrl);
-    return urlData;
   }
   handleCssChange = () => {
     const { layout } = this.state;
