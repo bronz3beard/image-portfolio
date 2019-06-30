@@ -24,26 +24,34 @@
 /* ----------- Google Pixel XL ----------- */
 
 /* Portrait and Landscape */
-@media (max-width: 360px) 
-  and (max-height: 640px) 
-  and (-webkit-device-pixel-ratio: 4) {
+@media (max-width: 412px) {
     .animal-wide-screen img {
       object-fit: cover;
-      height: 450px;
+      height: 500px;
       opacity: 1;
-      transform: translate(0%, -24%);
+      transform: translate(0%, 0%);
     }
     .nature-wide-screen img {
+      cursor: pointer;
       object-fit: cover;
-      height: 350px !important;
       opacity: 1;
+      height: 500px;
       transform: translate(0%, 0%);
     }
     .urban-wide-screen img {
       object-fit: cover;
-      height: 350px !important;
+      height: 500px;
       opacity: 1;
       transform: translate(0%, 0%);
+    }
+    .modal-body img {
+      float: left;
+      border-radius: 4px;
+      width: 140%;
+      height: 100%;
+      -webkit-overflow-scrolling: touch;
+      overflow: hidden;
+      margin: 10px;
     }
     .dropdown-content {
       display: none;

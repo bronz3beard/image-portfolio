@@ -18,7 +18,7 @@ class Galleryimages extends PureComponent {
             <Fragment>
                 {
                     images && this.shuffle(images).map((image) => {
-                        const img = image.fields.image.fields.file.url
+                        const img = `${image.fields.image.fields.file.url}?fm=jpg&fl=progressive`
                         const copy = image.fields.copy
                         return (
                             <div key={image.sys.id} className={layout ? parentTheme + image.fields.theme : parentTheme + "wide-screen"}>

@@ -12,8 +12,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - __Security__ in case of vulnerabilities.
 
 ## [0.8.0] - 30-06-2019
-### Changed
+###Changed
 - mobile device CSS layouts
+- mobile device CSS layouts ipad, Pixel 3
+- updated mosaic css layout so images fit better into grid layout
+
+###Added
+- preloading pixelation to image initial loading 
 
 ##Removed
 - removed findUrl function

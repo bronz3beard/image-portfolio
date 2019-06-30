@@ -41,7 +41,7 @@ class ContextMenu extends PureComponent {
             }, {
                 id: 5,
                 title: "Contact",
-                url: "/",
+                url: "/gallery/contact",
                 class: "",
                 target: "_blank",
                 rel: "noopener noreferrer",

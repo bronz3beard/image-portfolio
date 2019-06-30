@@ -28,6 +28,7 @@
     margin-top: 4px;
 }
 .animal-wide-screen img {
+    cursor: pointer;
     width: 100%;
     height: 1099px;
     opacity: 0.8;
@@ -38,39 +39,37 @@
 }
 .nature-wide-screen {
     position: relative;
+    width: 100%;
+    height: 500px;
     overflow: hidden;
+    margin-top: 4px;
 }
 .nature-wide-screen img {
     cursor: pointer;
-    object-fit: cover;
-    opacity: 0.8;
-    margin-top: 10px;
     width: 100%;
-    height: 500px !important;
-    transform: translate(0%, 0%);
+    height: 1099px;
+    opacity: 0.8;
+    transform: translate(0%, -24%);
 }
 #nature-wide-screen:hover {
     opacity: 1;
-    width: 100%;
-    height: 100%;
 }
 .urban-wide-screen {
     position: relative;
+    width: 100%;
+    height: 500px;
     overflow: hidden;
+    margin-top: 4px;
 }
 .urban-wide-screen img {
     cursor: pointer;
-    object-fit: cover;
-    opacity: 0.8;
-    margin-top: 10px;
     width: 100%;
-    height: 500px !important;
-    transform: translate(0%, 0%);
+    height: 1099px;
+    opacity: 0.8;
+    transform: translate(0%, -24%);
 }
 #urban-wide-screen:hover {
     opacity: 1;
-    width: 100%;
-    height: 100%;
 }
 .mosaic {
     display: grid;
@@ -88,18 +87,11 @@
     opacity: 0.4;
     /*border: 3px solid blue;*/
 }.animal-horizontal img {
-    width: 150%;
-	height: auto;
-    cursor: pointer;
-    left: auto;
-    right: auto;
-    margin-left: auto;
-    margin-right: auto;
-    transform: translate(-30%, -35%);
-}.animal-horizontal:hover {
-    opacity: 1;
     width: 100%;
     height: 100%;
+    object-fit: cover;
+}.animal-horizontal:hover {
+    opacity: 1;
 }
 .animal-vertical {
     overflow: hidden;
@@ -108,18 +100,11 @@
     opacity: 0.4;
     /*border: 3px solid green*/
 }.animal-vertical img {
-    width: auto;
-	height: 150%;
-    cursor: pointer;
-    left: auto;
-    right: auto;
-    margin-left: auto;
-    margin-right: auto;
-    transform: translate(-10%, -10%);
-}.animal-vertical:hover {
-    opacity: 1;
     width: 100%;
     height: 100%;
+    object-fit: cover;
+}.animal-vertical:hover {
+    opacity: 1;
 }
 .animal-square {
     overflow: hidden;
@@ -128,16 +113,11 @@
     opacity: 0.4;
     /*border: 3px solid yellow;*/
 }.animal-square img {
-    width: auto;
-	height: auto;
-    cursor: pointer;
-    margin-left: auto;
-    margin-right: auto;
-    transform: translate(-40%, -20%);
-}.animal-square:hover {
-    opacity: 1;
     width: 100%;
     height: 100%;
+    object-fit: cover;
+}.animal-square:hover {
+    opacity: 1;
 }
 .animal-small {
     overflow: hidden;
@@ -146,16 +126,11 @@
     opacity: 0.4;
     /*border: 3px solid yellow;*/
 }.animal-small img {
-    width: auto;
-	height: auto;
-    cursor: pointer;
-    margin-left: auto;
-    margin-right: auto;
-    transform: translate(-60%, -60%);
-}.animal-small:hover {
-    opacity: 1;
     width: 100%;
     height: 100%;
+    object-fit: cover;
+}.animal-small:hover {
+    opacity: 1;
 }
 .nature-horizontal {
     position: relative;
@@ -164,18 +139,11 @@
     opacity: 0.4;
     /*border: 3px solid blue;*/
 }.nature-horizontal img {
-    width: 150%;
-	height: auto;
-    cursor: pointer;
-    left: auto;
-    right: auto;
-    margin-left: auto;
-    margin-right: auto;
-    transform: translate(-30%, -35%);
-}.nature-horizontal:hover {
-    opacity: 1;
     width: 100%;
     height: 100%;
+    object-fit: cover;
+}.nature-horizontal:hover {
+    opacity: 1;
 }
 .nature-vertical {
     overflow: hidden;
@@ -184,18 +152,11 @@
     opacity: 0.4;
     /*border: 3px solid green*/
 }.nature-vertical img {
-    width: auto;
-	height: 150%;
-    cursor: pointer;
-    left: auto;
-    right: auto;
-    margin-left: auto;
-    margin-right: auto;
-    transform: translate(0%, -10%);
-}.nature-vertical:hover {
-    opacity: 1;
     width: 100%;
     height: 100%;
+    object-fit: cover;
+}.nature-vertical:hover {
+    opacity: 1;
 }
 .nature-square {
     overflow: hidden;
@@ -204,16 +165,11 @@
     opacity: 0.4;
     /*border: 3px solid yellow;*/
 }.nature-square img {
-    width: auto;
-	height: auto;
-    cursor: pointer;
-    margin-left: auto;
-    margin-right: auto;
-    transform: translate(-30%, -20%);
-}.nature-square:hover {
-    opacity: 1;
     width: 100%;
     height: 100%;
+    object-fit: cover;
+}.nature-square:hover {
+    opacity: 1;
 }
 .nature-small {
     overflow: hidden;
@@ -222,16 +178,11 @@
     opacity: 0.4;
     /*border: 3px solid yellow;*/
 }.nature-small img {
-    width: auto;
-	height: auto;
-    cursor: pointer;
-    margin-left: auto;
-    margin-right: auto;
-    transform: translate(-60%, -60%);
-}.nature-small:hover {
-    opacity: 1;
     width: 100%;
     height: 100%;
+    object-fit: cover;
+}.nature-small:hover {
+    opacity: 1;
 }
 .urban-horizontal {
     position: relative;
@@ -240,18 +191,11 @@
     opacity: 0.4;
     /*border: 3px solid blue;*/
 }.urban-horizontal img {
-    width: 150%;
-	height: auto;
-    cursor: pointer;
-    left: auto;
-    right: auto;
-    margin-left: auto;
-    margin-right: auto;
-    transform: translate(-30%, -35%);
-}.urban-horizontal:hover {
-    opacity: 1;
     width: 100%;
     height: 100%;
+    object-fit: cover;
+}.urban-horizontal:hover {
+    opacity: 1;
 }
 .urban-vertical {
     overflow: hidden;
@@ -260,18 +204,11 @@
     opacity: 0.4;
     /*border: 3px solid green*/
 }.urban-vertical img {
-    width: auto;
-	height: 150%;
-    cursor: pointer;
-    left: auto;
-    right: auto;
-    margin-left: auto;
-    margin-right: auto;
-    transform: translate(0%, -10%);
-}.urban-vertical:hover {
-    opacity: 1;
     width: 100%;
     height: 100%;
+    object-fit: cover;
+}.urban-vertical:hover {
+    opacity: 1;
 }
 .urban-square {
     overflow: hidden;
@@ -280,16 +217,11 @@
     opacity: 0.4;
     /*border: 3px solid yellow;*/
 }.urban-square img {
-    width: auto;
-	height: auto;
-    cursor: pointer;
-    margin-left: auto;
-    margin-right: auto;
-    transform: translate(-30%, -20%);
-}.urban-square:hover {
-    opacity: 1;
     width: 100%;
     height: 100%;
+    object-fit: cover;
+}.urban-square:hover {
+    opacity: 1;
 }
 .urban-small {
     overflow: hidden;
@@ -298,16 +230,11 @@
     opacity: 0.4;
     /*border: 3px solid yellow;*/
 }.urban-small img {
-    width: auto;
-	height: auto;
-    cursor: pointer;
-    margin-left: auto;
-    margin-right: auto;
-    transform: translate(-60%, -60%);
-}.urban-small:hover {
-    opacity: 1;
     width: 100%;
     height: 100%;
+    object-fit: cover;
+}.urban-small:hover {
+    opacity: 1;
 }
 
 @media print {
