@@ -6,7 +6,7 @@ import Gallery from "./gallery";
 
 class MainRoutes extends PureComponent {
     render() {
-        const { data, url, copy, isOpen, 
+        const { data, url, copy, selectedIndex, isOpen,
             layout, handleCssChange, showModal, closeModal
         } = this.props;
         
@@ -23,6 +23,7 @@ class MainRoutes extends PureComponent {
                             copy={copy}
                             isOpen={isOpen}
                             layout={layout}
+                            selectedIndex={selectedIndex}
                             handleCssChange={handleCssChange}
                             showModal={showModal}
                             closeModal={closeModal}

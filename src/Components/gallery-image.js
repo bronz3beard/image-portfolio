@@ -3,23 +3,16 @@ import React, { PureComponent, Fragment } from "react";
 //Components
 
 class Galleryimages extends PureComponent {
-    //The modern version of the Fisher–Yates shuffle
-    shuffle = (array) => {
-        for (let i = array.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [array[i], array[j]] = [array[j], array[i]];
-        }
-        return array;
-    }
     render() {
         const { images, layout, showModal, parentTheme } = this.props;
 
         return (
             <Fragment>
                 {
-                    images && this.shuffle(images).map((image) => {
+                    images && images.map((image) => {
                         const img = `${image.fields.image.fields.file.url}?fm=jpg&fl=progressive`
                         const copy = image.fields.copy
+
                         return (
                             <div key={image.sys.id} className={layout ? parentTheme + image.fields.theme : parentTheme + "wide-screen"}>
                                 <img
@@ -38,5 +31,6 @@ class Galleryimages extends PureComponent {
         );
     }
 }
+
 
 export default Galleryimages;

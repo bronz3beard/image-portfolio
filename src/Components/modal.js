@@ -1,14 +1,19 @@
 import React, { PureComponent } from "react";
 
 class Modal extends PureComponent {
+    
     render() {
-        const { src, alt, onClick } = this.props;
+        const { images, onClick, toggleNext, togglePrev } = this.props;
+//onClick={onClick}                        <button className="TEST" onClick={togglePrev}>Previous</button>
 
+        console.log("TCL: Modal -> render -> images", images)
         return (
-                <div className="modal-overlay" onClick={onClick}>
+                <div className="modal-overlay" >
                     <div className="modal-body">
                         <div className="modal-close" onClick={onClick} />
-                        <img src={src} alt={alt} onMouseDown={(event) => event.preventDefault()} draggable="false" />
+                        <button className="TEST" onClick={togglePrev}>Previous</button>
+                        <button className="TEST" onClick={toggleNext}>Next</button>
+                        <img src={`${images.fields.image.fields.file.url}?fm=jpg&fl=progressive`} copy={images.fields.copy} alt="" onMouseDown={(event) => event.preventDefault()} draggable="false" />
                     </div>
                 </div>
         )

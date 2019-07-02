@@ -12,13 +12,11 @@
     -o-animation: fadein 6s; /* Opera */
 }
 .modal-body img {
-    float: left;
-    border-radius: 4px;
-    width: 140%;
-    height: 100%;
-    -webkit-overflow-scrolling: touch;
-    overflow: hidden;
-    margin: 10px;
+    border-radius: 5px;
+    width: 60%;
+    position: fixed; 
+    top: 10%; 
+    left: 20%; 
 }
 .animal-wide-screen {
     position: relative;

@@ -67,8 +67,8 @@ class App extends PureComponent {
   }
   showModal = (image, copy, event) => {
     event.preventDefault();
-    document.body.style.overflow = "hidden"
-    document.body.style.overflow = "touch"
+    document.body.style.overflow = "hidden";
+    document.body.style.overflow = "touch";
     this.setState({
       overflow: true,
       isOpen: true,
@@ -85,8 +85,8 @@ class App extends PureComponent {
     });
   }
   render() {
-    const { error, isLoading, data, url, copy, isOpen, layout } = this.state;
-    
+    const { error, isLoading, data, url, copy, selectedIndex, isOpen, layout } = this.state;
+
     if (isLoading) {
       return (
         <Preloader />
@@ -102,7 +102,7 @@ class App extends PureComponent {
       );
     }
     const landingImage = data.fields.landingImage.fields.file.url;
-    
+
     const contactDetails = data.fields.pageAssembly.find(item => item.fields.url === "/gallery/contact");
 
     return (
