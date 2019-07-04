@@ -6,14 +6,14 @@ import Preloader from "./preloader";
 import Footer from "./footer";
 //Icons
 import icon from "../Icons/puzzle.png";
-
+//Styles
+import "../Styles/navi.css";
 //Lazy load Components
 const GalleryImage = lazy(() => import("./gallery-image"));
 const Modal = lazy(() => import("./modal"));
 
 class Gallery extends PureComponent {
   state = {
-    selectedIndex: 0,
     width: window.innerWidth,
   };
   componentDidMount() {
@@ -36,29 +36,6 @@ class Gallery extends PureComponent {
     }
     return array;
   }
-  toggleNext = () => {
-    const { selectedIndex } = this.state;
-    this.props.data.map((image => {
-      console.log("TCL: Gallery -> toggleNext -> selectedIndex === image.fields.images.length", selectedIndex + " -> " +  image.fields.images.length)
-      if (selectedIndex === image.fields.images.length) {
-        return;
-      }
-    }));
-
-    this.setState({
-      selectedIndex: selectedIndex + 1,
-    });  
-  }
-  togglePrev = () => {
-    const { selectedIndex } = this.state;
-    if (selectedIndex === 0)
-      return;
-
-
-    this.setState(prevState => ({
-      selectedIndex: prevState.selectedIndex - 1
-    }))
-  }
   handleCssChange = () => {
     this.props.handleCssChange();
   }
@@ -66,25 +43,31 @@ class Gallery extends PureComponent {
     this.props.closeModal();
   }
   render() {
-    const { width, selectedIndex } = this.state;
-    const { isLoading, data, url, copy, isOpen, layout, showModal, togglePrev } = this.props;
+    const { width } = this.state;
+    const { isLoading, data, url, theme, currentPage, imagePerPage, isOpen, layout, showModal, handlePageChange } = this.props;
 
     const parentClassChange = layout ? "mosaic" : "container-fluid galleryContainer";
-    console.log(data)
+
     return (
       <Fragment>
         <NavBar />
         <div className={parentClassChange} id="photos">
           {
             data.map(image => {
-
-
               return (
                 <Suspense key={image.sys.id} fallback={<Preloader />}>
                   {width > 850 && isOpen ? <Suspense fallback={<Preloader />}>
-                    <Modal onClick={this.closeModal} images={image.fields.images[(selectedIndex + 1) % image.fields.images.length]} toggleNext={this.toggleNext} togglePrev={this.togglePrev}/>
+                    <Modal 
+                      url={url} 
+                      images={image.fields.images} 
+                      theme={theme} 
+                      currentPage={currentPage} 
+                      recordsPerPage={imagePerPage} 
+                      onClick={this.closeModal} 
+                      handlePageChange={handlePageChange}
+                    />
                   </Suspense> : null}
-                  <GalleryImage images={image.fields.images} layout={layout} showModal={showModal} isOpen={isOpen} selectedIndex={selectedIndex} parentTheme={image.fields.theme + "-"} />
+                  <GalleryImage images={image.fields.images} layout={layout} showModal={showModal} parentTheme={image.fields.theme + "-"} />
                 </Suspense>
               );
             })

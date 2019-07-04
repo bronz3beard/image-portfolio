@@ -1,21 +1,29 @@
 import React, { PureComponent } from "react";
 
-class Modal extends PureComponent {
-    
-    render() {
-        const { images, onClick, toggleNext, togglePrev } = this.props;
-//onClick={onClick}                        <button className="TEST" onClick={togglePrev}>Previous</button>
+//Components
+import Pagination from "./pagination";
 
-        console.log("TCL: Modal -> render -> images", images)
+class Modal extends PureComponent {
+
+    render() {
+        const { images, url, theme, onClick, currentPage, imagePerPage, handlePageChange } = this.props;
+
         return (
-                <div className="modal-overlay" >
-                    <div className="modal-body">
-                        <div className="modal-close" onClick={onClick} />
-                        <button className="TEST" onClick={togglePrev}>Previous</button>
-                        <button className="TEST" onClick={toggleNext}>Next</button>
-                        <img src={`${images.fields.image.fields.file.url}?fm=jpg&fl=progressive`} copy={images.fields.copy} alt="" onMouseDown={(event) => event.preventDefault()} draggable="false" />
-                    </div>
+            <div className="modal-overlay" >
+                <div className="modal-body">
+                    <div className="modal-close" />
+                    <Pagination data={images} currentPage={currentPage} imagePerPage={imagePerPage} handlePageChange={handlePageChange} />
+                    <div className="image-container">
+                    <img
+                        className={theme}
+                        src={url}
+                        alt=""
+                        onClick={onClick}
+                        onMouseDown={(event) => event.preventDefault()}
+                        draggable="false"
+                    /></div>
                 </div>
+            </div>
         )
     }
 }

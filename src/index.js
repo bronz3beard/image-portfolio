@@ -10,11 +10,9 @@ import * as serviceWorker from "./serviceWorker";
 //Styles
 import "./Styles/preloader.css";
 import "./Styles/contextmenu.css";
-import "./Styles/navi.css";
 import "./Styles/landing-parallax.css";
 import "./Styles/gallery.css";
 import "./Styles/image.css";
-import "./Styles/contact.css"
 import "./Styles/responsive-apple.css";
 import "./Styles/responsive-pixel.css"
 

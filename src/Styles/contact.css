@@ -27,6 +27,11 @@ form {
 .contact p, h4 {
     margin-left: 5%;
 }
+.contact p a {
+    color: white;
+}.contact p a:hover {
+    color: #e3563b;
+}
 .contact label {
     border: 5px solid;
     margin-left: 2%;

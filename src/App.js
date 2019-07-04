@@ -16,9 +16,12 @@ class App extends PureComponent {
       error: false,
       isLoading: true,
       data: null,
+      currentPage: 0,
+      recordsPerPage: 1,
       isOpen: false,
       url: "",
       copy: "",
+      theme: "",
       layout: false,
     };
   }
@@ -65,16 +68,42 @@ class App extends PureComponent {
       layout: !layout,
     });
   }
-  showModal = (image, copy, event) => {
+  showModal = (url, copy, theme, index, event) => {
     event.preventDefault();
+
     document.body.style.overflow = "hidden";
     document.body.style.overflow = "touch";
     this.setState({
+      url,
+      copy,
+      theme,
+      currentPage: index,
       overflow: true,
       isOpen: true,
-      url: image,
-      copy: copy,
     });
+  }
+  handlePageChange = (images, event) => {
+    event.preventDefault();
+    const type = event.target.textContent;
+
+    //Left mouse click event
+    if (type === "〉〉") {
+      if (this.state.currentPage === images.length - 1) {
+        return;
+      }
+      this.setState({
+        currentPage: this.state.currentPage + 1,
+        url: `${images[(this.state.currentPage + 1) % images.length].fields.image.fields.file.url}?fm=jpg&fl=progressive`,
+      });
+    } if (type === "〈〈") {
+      if (this.state.currentPage === images.length % images.length) {
+        return;
+      }
+      this.setState({
+        currentPage: this.state.currentPage - 1,
+        url: `${images[(this.state.currentPage - 1) % images.length].fields.image.fields.file.url}?fm=jpg&fl=progressive`,
+      });
+    }
   }
   closeModal = () => {
     document.body.style.overflow = "auto"
@@ -85,7 +114,7 @@ class App extends PureComponent {
     });
   }
   render() {
-    const { error, isLoading, data, url, copy, selectedIndex, isOpen, layout } = this.state;
+    const { error, isLoading, data, url, copy, theme, isOpen, currentPage, imagePerPage, layout } = this.state;
 
     if (isLoading) {
       return (
@@ -102,8 +131,9 @@ class App extends PureComponent {
       );
     }
     const landingImage = data.fields.landingImage.fields.file.url;
-
     const contactDetails = data.fields.pageAssembly.find(item => item.fields.url === "/gallery/contact");
+    const indexOfLastImage = currentPage * imagePerPage;
+    const indexOfFirstImage = indexOfLastImage - imagePerPage;
 
     return (
       <Fragment>
@@ -116,11 +146,17 @@ class App extends PureComponent {
             data={data.fields.pageAssembly}
             url={url}
             copy={copy}
+            theme={theme}
             isOpen={isOpen}
             layout={layout}
+            currentPage={currentPage}
+            imagePerPage={imagePerPage}
+            indexOfFirstImage={indexOfFirstImage}
+            indexOfLastImage={indexOfLastImage}
             handleCssChange={this.handleCssChange}
             showModal={this.showModal}
             closeModal={this.closeModal}
+            handlePageChange={this.handlePageChange}
           />
           <Route component={NoMatch} />
         </Switch>

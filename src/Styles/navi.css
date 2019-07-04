@@ -7,7 +7,7 @@
     padding: 14px 16px;
 }
 
-ul {
+ul.nav {
     top: 0;
     list-style-type: none;
     margin: 0;
@@ -54,5 +54,3 @@ li.dropdown {
 .dropdown:hover .dropdown-content {
     display: block;
 }
-
-.TEST {z-index: 20000;}

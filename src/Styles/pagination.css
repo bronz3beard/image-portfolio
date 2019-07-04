@@ -1,0 +1,61 @@
+.pagination-wrapper {
+    width: 100%;
+}
+ul.pagination li.next {
+    margin-top: 180px;
+    padding-top: 180px;
+    text-align: justify;
+    height: 400px;
+    margin-right: 8%;
+    float: right;
+    list-style-type: none;
+    background-color: transparent;
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer */
+    -khtml-user-select: none; /* KHTML browsers (e.g. Konqueror) */
+    -webkit-user-select: none; /* Chrome, Safari, and Opera */
+    -webkit-touch-callout: none; /* Disable Android and iOS callouts*/
+}
+ul.pagination li.previous {
+    margin-top: 180px;
+    padding-top: 180px;
+    text-align: justify;
+    height: 400px;
+    margin-left: 6%;
+    float: left;
+    list-style-type: none;
+    background-color: transparent;
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer */
+    -khtml-user-select: none; /* KHTML browsers (e.g. Konqueror) */
+    -webkit-user-select: none; /* Chrome, Safari, and Opera */
+    -webkit-touch-callout: none; /* Disable Android and iOS callouts*/
+}
+.pagination-wrapper {
+    z-index: 10000;
+    text-align: center;
+    cursor: pointer;
+}
+ul.pagination li {
+    color: white;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+    border: 1px solid #ddd;
+}
+.pagination li:first-child {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+.pagination li:last-child {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+ul.pagination li.active {
+    background-color: blue;
+    color: white;
+    border: 1px solid blue;
+}
+ul.pagination li:hover:not(.active) {
+    background-color: #ddd;
+}

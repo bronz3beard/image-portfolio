@@ -11,6 +11,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - __Fixed__ for any bug fixes.
 - __Security__ in case of vulnerabilities.
 
+## [0.9.0] - 2-07-2019 & 4-07-2019
+###Changed
+- lightbox/modal pagination next/previous is now functional
+- css for modal
+- moved css styling around to specific components where its needed rather than universally accessed
+
+###Added
+- pagination component and css styling
+
 ## [0.8.0] - 2-07-2019
 ###Added
 - WIP lightbox/modal next previos buttons not 100% functional/buggy

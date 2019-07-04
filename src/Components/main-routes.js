@@ -6,8 +6,8 @@ import Gallery from "./gallery";
 
 class MainRoutes extends PureComponent {
     render() {
-        const { data, url, copy, selectedIndex, isOpen,
-            layout, handleCssChange, showModal, closeModal
+        const { data, url, copy, theme, isOpen, currentPage, imagePerPage, indexOfFirstImage,
+            indexOfLastImage, handlePageChange, layout, handleCssChange, showModal, closeModal
         } = this.props;
         
         const galleryPageRoutes = data.map(items => {
@@ -21,12 +21,17 @@ class MainRoutes extends PureComponent {
                             data={items.fields.pageBuild}
                             url={url}
                             copy={copy}
+                            theme={theme}
                             isOpen={isOpen}
                             layout={layout}
-                            selectedIndex={selectedIndex}
-                            handleCssChange={handleCssChange}
                             showModal={showModal}
                             closeModal={closeModal}
+                            currentPage={currentPage} 
+                            imagePerPage={imagePerPage} 
+                            indexOfFirstImage={indexOfFirstImage}
+                            indexOfLastImage={indexOfLastImage}
+                            handlePageChange={handlePageChange}
+                            handleCssChange={handleCssChange}
                         />
                     )}
                 />

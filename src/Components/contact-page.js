@@ -4,9 +4,9 @@ import ReactMarkdown from "react-markdown";
 //Components
 import NavBar from "./navbar";
 import Animation from "./Canvas-Animation/animation";
-
 //Styles
 import "../Styles/canvas.css";
+import "../Styles/contact.css";
 
 const AIRTABLE_API_KEY = process.env.REACT_APP_API_KEY;
 const AIRTABLE_BASE = process.env.REACT_APP_BASE;
