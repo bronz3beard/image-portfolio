@@ -4,7 +4,7 @@ import React, { PureComponent, Fragment } from "react";
 
 class Galleryimages extends PureComponent {
     render() {
-        const { images, layout, showModal, parentTheme } = this.props;
+        const { images, layout, showModal, parentTheme, width } = this.props;
 
         return (
             <Fragment>
@@ -22,7 +22,7 @@ class Galleryimages extends PureComponent {
                                     src={url}
                                     alt={image.fields.altText}
                                     onMouseDown={(event) => event.preventDefault()}
-                                    onClick={(event) => showModal(url, copy, theme, index, event)}
+                                    onClick={width > 850 ? (event) => showModal(url, copy, theme, index, event) : null}
                                 />
                             </div>
                         );

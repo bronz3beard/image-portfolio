@@ -67,7 +67,7 @@ class Gallery extends PureComponent {
                       handlePageChange={handlePageChange}
                     />
                   </Suspense> : null}
-                  <GalleryImage images={image.fields.images} layout={layout} showModal={showModal} parentTheme={image.fields.theme + "-"} />
+                  <GalleryImage images={image.fields.images} layout={layout} showModal={showModal} parentTheme={image.fields.theme + "-"} width={width} />
                 </Suspense>
               );
             })

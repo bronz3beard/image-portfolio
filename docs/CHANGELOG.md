@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - __Fixed__ for any bug fixes.
 - __Security__ in case of vulnerabilities.
 
+## [0.9.0] - 4-07-2019
+###Removed
+- modal for mobile devices with a screen width less than 850px
+
 ## [0.9.0] - 2-07-2019 & 4-07-2019
 ###Changed
 - lightbox/modal pagination next/previous is now functional
