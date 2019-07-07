@@ -1,24 +1,72 @@
 /* Portrait and Landscape */
-@media (max-width: 360px) 
-  and (max-height: 640px) 
-  and (-webkit-device-pixel-ratio: 2) {
-
-}
-
-/* Portrait */
-@media (max-width: 320px) 
-  and (max-height: 640px) 
-  and (-webkit-device-pixel-ratio: 2) 
-  and (orientation: portrait) {
-
-}
-
-/* Landscape */
-@media (max-width: 320px) 
-  and (max-height: 640px) 
-  and (-webkit-device-pixel-ratio: 2) 
-  and (orientation: landscape) {
-
+@media (max-width: 360px) {
+    .container-responsive nature, animal {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-gap: 1px;
+      margin: 1px;
+      align-items: stretch;
+    }
+    .nature-wide-screen img {
+      width: 358px;
+      height: 465px;
+      opacity: 1;
+      object-fit: cover;
+    }    
+    .animal-wide-screen img {
+      width: 358px;
+      height: 660px;
+      opacity: 1;
+      object-fit: cover;
+    }
+    .container-responsive-urban {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-gap: 1px;
+      margin: 1px;
+      align-items: stretch;
+    }
+    .urban-wide-screen img {
+      width: 358px;
+      height: 413px;
+      opacity: 1;
+      object-fit: cover;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 10;
+    }
+    form {
+      font-size: 14px;
+      text-align: left;
+      position: relative;
+      z-index: 9;
+      margin-top: 20%;
+      display: inline-block;
+      border-radius: 2px;
+      box-shadow: -10px 10px 0px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.20);
+      color: white;
+      background: linear-gradient(180deg, #ee5511 .5%, 10%, #aa2211,  transparent);
+      /*border: 5px solid;*/
+      /*border-color: rgb( 238, 100, 60 );*/
+      width: 80%;
+    }
+    input[type=submit] {
+      font-family: 'PT Sans Narrow', sans-serif;
+      width: 90%;
+      margin-left: 5%;
+      margin-bottom: 1%;
+      padding: 5px;
+      resize: vertical;
+      color: white;
+      background-color: transparent;
+      border: transparent;
+      cursor: pointer;
+    }
 }
 
 /* ----------- Galaxy S4, S5 and Note 3 ----------- */

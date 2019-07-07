@@ -14,7 +14,8 @@ import "./Styles/landing-parallax.css";
 import "./Styles/gallery.css";
 import "./Styles/image.css";
 import "./Styles/responsive-apple.css";
-import "./Styles/responsive-pixel.css"
+import "./Styles/responsive-pixel.css";
+import "./Styles/responsive-galaxy.css";
 
 ReactDOM.render(
   <BrowserRouter>

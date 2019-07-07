@@ -15,6 +15,7 @@ const Modal = lazy(() => import("./modal"));
 class Gallery extends PureComponent {
   state = {
     width: window.innerWidth,
+    parentClass: "galleryContainer",
   };
   componentDidMount() {
     window.addEventListener("resize", this.resizeWindow);
@@ -44,16 +45,14 @@ class Gallery extends PureComponent {
   }
   render() {
     const { width } = this.state;
-    const { isLoading, data, url, theme, currentPage, imagePerPage, isOpen, layout, showModal, handlePageChange } = this.props;
-
-    const parentClassChange = layout ? "mosaic" : "container-fluid galleryContainer";
+    const { isLoading, data, url, theme, parentTheme, currentPage, imagePerPage, isOpen, layout, showModal, handlePageChange } = this.props;
 
     return (
       <Fragment>
         <NavBar />
-        <div className={parentClassChange} id="photos">
           {
             data.map(image => {
+              const parentClassChange = layout ? "mosaic" : parentTheme;
               return (
                 <Suspense key={image.sys.id} fallback={<Preloader />}>
                   {width > 850 && isOpen ? <Suspense fallback={<Preloader />}>
@@ -63,18 +62,19 @@ class Gallery extends PureComponent {
                       theme={theme} 
                       currentPage={currentPage} 
                       recordsPerPage={imagePerPage} 
-                      onClick={this.closeModal} 
                       handlePageChange={handlePageChange}
+                      onClick={this.closeModal} 
                     />
                   </Suspense> : null}
-                  <GalleryImage images={image.fields.images} layout={layout} showModal={showModal} parentTheme={image.fields.theme + "-"} width={width} />
+                  <div className={parentClassChange} id="photos">
+                    <GalleryImage images={image.fields.images} layout={layout} showModal={showModal} parentTheme={image.fields.theme + "-"} width={width} />
+                  </div>
                 </Suspense>
               );
             })
           }
           {width > 850 ? <img src={icon} alt="icons8.com" className="layout-change-icon" onClick={this.handleCssChange} /> : null}
           {isLoading && <Preloader />}
-        </div>
         <Footer />
       </Fragment>
     )

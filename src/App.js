@@ -130,6 +130,7 @@ class App extends PureComponent {
         </div>
       );
     }
+    
     const landingImage = data.fields.landingImage.fields.file.url;
     const contactDetails = data.fields.pageAssembly.find(item => item.fields.url === "/gallery/contact");
     const indexOfLastImage = currentPage * imagePerPage;

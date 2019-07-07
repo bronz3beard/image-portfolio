@@ -4,12 +4,12 @@ import { Route } from "react-router-dom";
 //Components
 import Gallery from "./gallery";
 
-class MainRoutes extends PureComponent {
+class MainRoutes extends PureComponent {                           
     render() {
         const { data, url, copy, theme, isOpen, currentPage, imagePerPage, indexOfFirstImage,
             indexOfLastImage, handlePageChange, layout, handleCssChange, showModal, closeModal
         } = this.props;
-        
+
         const galleryPageRoutes = data.map(items => {
             return (
                 <Route
@@ -22,6 +22,7 @@ class MainRoutes extends PureComponent {
                             url={url}
                             copy={copy}
                             theme={theme}
+                            parentTheme={items.fields.theme}
                             isOpen={isOpen}
                             layout={layout}
                             showModal={showModal}

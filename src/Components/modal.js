@@ -12,7 +12,7 @@ class Modal extends PureComponent {
             <div className="modal-overlay" >
                 <div className="modal-body">
                     <div className="modal-close" />
-                    <Pagination data={images} currentPage={currentPage} imagePerPage={imagePerPage} handlePageChange={handlePageChange} />
+                    <Pagination data={images} currentPage={currentPage} imagePerPage={imagePerPage} handlePageChange={handlePageChange}/>
                     <div className="image-container">
                     <img
                         className={theme}

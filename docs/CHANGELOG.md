@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - __Fixed__ for any bug fixes.
 - __Security__ in case of vulnerabilities.
 
+## [0.9.0] - 7-07-2019
+###Added
+- still adding styles for responsive layouts all devices done except, iphone, 5/6/7/8 and + versions X/XS/XRXS MAX Kindle Fire
+
 ## [0.9.0] - 4-07-2019
 ###Removed
 - modal for mobile devices with a screen width less than 850px
