@@ -39,8 +39,9 @@ class App extends PureComponent {
   }
   getAllContentfulData = () => {
     const galleryUrl = this.getUrl();
+
     getAll().then((galleries) => {
-      const galleryData = galleries && galleries.find(item => item.fields.url === galleryUrl);
+      const galleryData = galleries && galleries.find(item => item.fields.url === galleryUrl);  
       if (!galleryData || galleryData === "undefined") {
         this.setState({
           isLoading: false,
